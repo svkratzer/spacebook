@@ -1,24 +1,7 @@
-# README
+# MyFace
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README will eventually contain content and links to important stuff.   
 
-Things you may want to cover:
+Until then, it shall contain a single placeholder [link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) and image.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![rails meme](/app/assets/images/rails_meme.jpg)
