@@ -5,7 +5,7 @@ import {
 
 const _defaultErrors = [];
 
-export default (state = _defaultErrors, action) => {
+const sessionErrorsReducer = (state = _defaultErrors, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
@@ -16,3 +16,5 @@ export default (state = _defaultErrors, action) => {
       return state;
   }
 };
+
+export default sessionErrorsReducer;
