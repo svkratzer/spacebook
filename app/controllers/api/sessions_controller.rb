@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :ensure_logged_in, only: [:create]
 
