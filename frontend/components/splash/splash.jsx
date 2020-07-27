@@ -7,7 +7,8 @@ class Splash extends React.Component {
   render() {
     return (
       <div className='splash-body'>
-
+        <LoginFormContainer />
+        <SignupFormContainer />
       </div>
     );
   }
