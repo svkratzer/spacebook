@@ -4,13 +4,13 @@ import SignupForm from './signup_form';
 
 const mSTP = state => {
   return {
-
+    errors: state.errors.session
   };
 }
 
 const mDTP = dispatch => {
   return {
-
+    signup: (user) => dispatch(signup(user))
   };
 }
 
