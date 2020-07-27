@@ -9,6 +9,7 @@ class Api::SessionsController < ApplicationController
       redirect_to api_user_url(@user)
     else
       render json: ['Oops! Invalid email or password. Please, try again.'], status: 401
+    end
   end
 
   def destroy
@@ -16,5 +17,6 @@ class Api::SessionsController < ApplicationController
       logout!
     else
       render json: ['You\'re already logged out, ya \'lil peanut!'], status: 403
+    end
   end
 end
