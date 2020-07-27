@@ -5,3 +5,6 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
 end
+
+# npm init -y
+# npm install webpack webpack-cli react react-dom react-redux redux redux-logger @babel/core @babel/preset-react @babel/preset-env babel-loader redux-logger react-router-dom
