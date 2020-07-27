@@ -4,13 +4,13 @@ import LoginForm from './login_form';
 
 const mSTP = state => {
   return {
-
+    errors: state.errors.session
   };
 } 
 
 const mDTP = dispatch => {
   return {
-
+    login: user => dispatch(login(user))
   };
 }
 
