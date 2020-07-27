@@ -17,7 +17,7 @@
   },
   "description": "This README will eventually contain content and links to important stuff.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "directories": {
     "lib": "lib",
     "test": "test"
