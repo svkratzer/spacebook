@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
     if current_user
       logout!
     else
-      render json: ['You\'re already logged out, ya \'lil peanut!']
+      render json: ['You\'re already logged out, ya \'lil peanut!'], status: 403
   end
 end
