@@ -157,6 +157,8 @@ class SignupForm extends React.Component {
         </p>
         
         <button className="submit-button" type="submit">Sign Up</button>
+
+        <p>{this.props.errors}</p>
       </form>
     );
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { update } from 'lodash';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -14,8 +13,8 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    return e =>
-      this.setState({ [field]: this.currentTarget.value })
+    return (e) =>
+      this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit() {
@@ -46,6 +45,8 @@ class LoginForm extends React.Component {
         </div>
         
         <button>Log In</button>
+
+        <p>{this.props.errors}</p>
       </form>
     );
   }
