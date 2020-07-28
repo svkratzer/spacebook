@@ -4,7 +4,22 @@ import configureStore from './store/store'
 import Root from './components/root'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+
+  let preloadedState = {};
+  if (window.currentUser) {
+    preloadedState = {
+      entities: {
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
+      },
+      session: {
+        id: window.currentUser.id
+      }
+    };
+  }
+
+  const store = configureStore(preloadedState);
 
   // TESTING
   window.dispatch = store.dispatch;
