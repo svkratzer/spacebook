@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_api_actions';
 import ProfileShow from './profile_show';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   return {
-    user: state.users[ownProps.match.params.userId]
+    user: state.entities.users[state.session.id]
   };
 };
 

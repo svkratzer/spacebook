@@ -5,18 +5,17 @@ class ProfileShow extends React.Component {
     super(props);
   }
 
-
-
   render() {
     const { user } = this.props
     return(
       <div className="profile-show-body">
-        <h2>Welcome, {user.firstName}.</h2>
-        <p>Name: {user.firstName} {user.lastName}</p>
+        <h2>Welcome, {user.first_name}.</h2>
+        <p>Name: {user.first_name} {user.last_name}</p>
         <p>Birthday: {user.birthday}</p>
-        <button onClick={() => this.props.logout()}></button>
+        <button onClick={() => this.props.logout()}>logout</button>
       </div>
     );
   }
 }
 
+export default ProfileShow;
