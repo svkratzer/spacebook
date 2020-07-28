@@ -11,8 +11,8 @@ class SignupForm extends React.Component {
     this.year = date.getFullYear();
 
     this.state = {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       email: "",
       password: "",
       birthday: `${this.year}-${this.month}-${this.day}`,
@@ -62,15 +62,15 @@ class SignupForm extends React.Component {
 
         <div className="name-inputs">
           <input type="text"
-            className="firstName"
-            value={this.state.firstName}
+            className="first-name"
+            value={this.state.first_name}
             placeholder="First name"
-            onChange={this.update('firstName')}/>
+            onChange={this.update('first_name')}/>
           <input type="text" 
-            className="lastName"
-            value={this.state.lastName}
+            className="last-name"
+            value={this.state.last_name}
             placeholder="Last name"
-            onChange={this.update('lastName')}/>
+            onChange={this.update('last_name')}/>
         </div>
         
         <div className="email-input">
