@@ -47,6 +47,14 @@ class SignupForm extends React.Component {
     }
   }
 
+  // showCustomGenderInput() {
+  //   $('.custom-gender-input').removeClass('hidden');
+  // }
+
+  // hideCustomGenderInput() {
+  //   $('.custom-gender-input').addClass('hidden');
+  // }
+
   render() {
     return (
       <form className="signup-form"
@@ -81,20 +89,23 @@ class SignupForm extends React.Component {
             onChange={this.update('password')}/>
         </div>
 
-        <div className="birthday-input">
-          <label>Birthday</label>
+        <div className="birthday-inputs-container">
+          <div className="birthday-container-label">Birthday</div>
+
           <select className="month"
             value={this.state.birthday.split('-')[1]}
             onChange={this.updateBirthday('month')}>
             <option>Month</option>
             {dateOptions.months}
           </select>
+
           <select className="day"
             value={this.state.birthday.split('-')[2]}
             onChange={this.updateBirthday('day')}>
             <option>Day</option>
             {dateOptions.days}
           </select>
+
           <select className="year"
             value={this.state.birthday.split('-')[0]}
             onChange={this.updateBirthday('year')}>
@@ -102,7 +113,43 @@ class SignupForm extends React.Component {
             {dateOptions.years}
           </select>
         </div>
+        
+        <div className="gender-inputs-container">
+          <div className="gender-container-label">Gender</div>
+          
+          <label className="gender-input-label">
+            <input type="radio"
+              name="gender"
+              value="Male"
+              className="gender-input"
+              onClick={this.update('gender')}/>
+            Male
+          </label>
 
+          <label className="gender-input-label">
+            <input type="radio"
+              name="gender"
+              value="Female"
+              className="gender-input"
+              onClick={this.update('gender')}/>
+            Female
+          </label>
+
+          <label className="gender-input-label">
+            <input type="radio"
+              name="gender"
+              value=""
+              className="gender-input"
+              onClick={this.update('gender')}/>
+            Custom
+          </label>
+
+          <input type="text"
+            className="custom-gender-input hidden"
+            value={this.state.gender}
+            placeholder="Gender (optional)"
+            onChange={this.update('gender')} />
+        </div>
 
       </form>
     );
