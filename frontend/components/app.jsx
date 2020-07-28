@@ -3,7 +3,6 @@ import Splash from './splash/splash';
 
 const App = () => (
   <div>
-    Hey ya 'lil peanut! Your App component is rendering!
     <Splash />
   </div>
 );
