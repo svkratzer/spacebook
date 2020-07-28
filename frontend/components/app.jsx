@@ -1,10 +1,10 @@
 import React from 'react';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 // import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <Splash />
+    <SplashContainer />
   </div>
 );
 
