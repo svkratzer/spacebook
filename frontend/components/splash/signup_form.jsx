@@ -47,13 +47,13 @@ class SignupForm extends React.Component {
     }
   }
 
-  // showCustomGenderInput() {
-  //   $('.custom-gender-input').removeClass('hidden');
-  // }
+  showCustomGenderInput() {
+    $('.custom-gender-input').removeClass('hidden');
+  }
 
-  // hideCustomGenderInput() {
-  //   $('.custom-gender-input').addClass('hidden');
-  // }
+  hideCustomGenderInput() {
+    $('.custom-gender-input').addClass('hidden');
+  }
 
   render() {
     return (
@@ -138,19 +138,25 @@ class SignupForm extends React.Component {
           <label className="gender-input-label">
             <input type="radio"
               name="gender"
-              value=""
+              value="Custom"
               className="gender-input"
               onClick={this.update('gender')}/>
             Custom
           </label>
 
-          <input type="text"
+          {/* <input type="text"
             className="custom-gender-input hidden"
             value={this.state.gender}
             placeholder="Gender (optional)"
-            onChange={this.update('gender')} />
+            onChange={this.update('gender')} /> */}
         </div>
-
+        
+        <p className="signup-form-terms">
+          By clicking Sign Up, you recognize that <span>this is a fake website</span> and is for <span>demonstrational purposes only</span>. Please, <span>DO NOT</span> use real and/or sesnsitive
+          information when creating an account.
+        </p>
+        
+        <button className="submit-button" type="submit">Sign Up</button>
       </form>
     );
   }
