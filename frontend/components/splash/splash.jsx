@@ -10,12 +10,6 @@ class Splash extends React.Component {
       email: "thecage@nick.com",
       password: "password123"
     }
-
-    this.loginDemoUser = this.loginDemoUser.bind(this);
-  }
-
-  loginDemoUser() {
-    this.props.login(this.demoUserCredentials);
   }
   
   render() {
@@ -29,7 +23,9 @@ class Splash extends React.Component {
         <div>
           <h2>Sign Up</h2>
           <SignupFormContainer />
-          <button onClick={() => this.loginDemoUser}>Nicholas Cage Simulator</button>
+          <button onClick={() => this.props.login(this.demoUserCredentials)}>
+            Nicholas Cage Simulator
+          </button>
         </div>
 
       </div>
