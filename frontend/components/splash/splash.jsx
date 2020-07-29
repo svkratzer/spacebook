@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Splash extends React.Component {
   constructor(props) {
@@ -38,7 +39,9 @@ class Splash extends React.Component {
                     <span>Share what's new</span>&nbsp;in your life on your Wall.
                   </li>
                   <li>
-                    <i className="info-icon"></i>
+                    <FontAwesomeIcon icon={['fas', 'code']} />
+                    <i className="info-icon" >
+                    </i>
                     <span>Find more</span>&nbsp;of what you're looking for with MyFace Search.
                   </li>
                 </ul>

@@ -68,7 +68,6 @@ class LoginForm extends React.Component {
             
             <input type="password"
               value={this.state.password}
-              autoComplete="current-password"
               className="login-input"
               onChange={this.update('password')}
               onFocus={this.handleFocus}

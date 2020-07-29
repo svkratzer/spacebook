@@ -1,5 +1,5 @@
 import React from 'react';
-import * as dateOptions from '../../util/date_options_util'
+import * as dateOptions from '../../util/date_options_util';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -24,13 +24,14 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.signup(this.state);
   }
 
   update(field) {
     return (e) => 
-      this.setState({ [field]: e.currentTarget.value });
+      this.setState({ [field]: e.target.value });
   }
 
   updateBirthday(field) {
@@ -92,7 +93,6 @@ class SignupForm extends React.Component {
         <div className="password-input">
           <input type="password" 
             className="password"
-            autoComplete="current-password"
             value={this.state.password}
             placeholder="New password"
             onChange={this.update('password')}/>
@@ -128,16 +128,16 @@ class SignupForm extends React.Component {
 
            <label className="gender-input-label">
             <input type="radio"
-              name="gender"
+              name="g"
               value="Female"
               className="gender-input"
-              onClick={() => { this.updateGender('female'); this.update('gender') }}/>
+              onClick={() => {this.updateGender('female'); this.update('gender')}}/>
             Female
           </label>  
 
           <label className="gender-input-label">
             <input type="radio"
-              name="gender"
+              name="g"
               value="Male"
               className="gender-input"
               onClick={() => { this.updateGender('male'); this.update('gender') }}/>
@@ -146,7 +146,7 @@ class SignupForm extends React.Component {
 
           <label className="gender-input-label">
             <input type="radio"
-              name="gender"
+              name="g"
               value="Custom"
               className="gender-input"
               onClick={() => {this.updateGender('custom'); this.update('gender')}}/>
