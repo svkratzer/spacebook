@@ -1,0 +1,283 @@
+.splash-body {
+  background-color: #edf0f5;
+  background-size: cover;
+}
+
+::placeholder {
+  color: #90949c;
+  opacity: 1;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+span {
+  font-weight: 600;
+}
+
+// --- Splash Page Header ---
+
+.splash-top {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(#4d68a1, #3b5a98, #3b5a98);
+  border-bottom: 1px solid #21438b;
+  height: 82px;
+  position: relative;
+}
+
+.splash-header {
+  display: flex;
+  justify-content: space-between;
+  width: 980px;
+  margin: auto;
+}
+
+.splash-title {
+  color: #ffffff;
+  font-family: 'SF Pro', Tahoma, Geneva, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  line-height: 2.4;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+// Splash Page Header > Login Form
+
+.login-form {
+  display: flex;
+  position: relative;
+  height: 82px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  // padding-right: 8px;
+}
+
+.login-label {
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  margin-bottom: 4px;
+  cursor: default;
+  position: relative;
+}
+
+.login-container input {
+  margin-right: 16px;
+}
+
+.login-input {
+  border: solid 1px #252f54;
+  height: 20px;
+  width: 142px;
+  background-color: #e8f1fe;
+}
+
+.login-form button {
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 19px;
+  background-color: #4267b2;
+  border: solid 1px #2b4b81;
+  width: 50px;
+  height: 24px;
+  border-radius: 2px;
+}
+
+.login-form button:hover {
+  background: #365899;
+}
+
+// Splash Main
+
+.splash-main {
+  display: flex;
+  justify-content: center;
+}
+
+.splash-main-body {
+  display: flex;
+  color: #333333;
+  position: relative;
+  width: 980px;
+  font-family: Verdana, sans-serif;
+  margin-bottom: 70px;
+}
+
+// INFO SECTION
+
+.splash-info-section {
+  font-family: "FreightSans Medium","Freight-SansBold",  Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.splash-info-section h2 {
+  font-weight: 600;
+  font-size: 32px;
+  padding-top: 65px;
+  width: 565px;
+  margin-right: 15px;
+  font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.splash-info-section ul {
+  margin-top: 45px;
+}
+
+.splash-info-section ul > li {
+  color: #666;
+  width: 565px;
+  font-size: 18px;
+  word-spacing: 2px;
+}
+
+.splash-info-section ul li > span {
+  color: #333333;
+  font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+
+// SIGNUP FORM
+
+.splash-signup-section h2 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-top: 19px;
+  font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.splash-signup-section h3 {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-family: "FreightSans Medium","Freight-SansBold",  Tahoma, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+
+.splash-signup-section {
+  width: 399px;
+}
+
+.splash-signup-section button {
+  font-weight: bold;
+  font-size: 19px;
+  letter-spacing: normal;
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 1px 1px #a4e388;
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  border: 1px solid  #578843;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 39px;
+  min-width: 194px;
+  padding: 7px 20px;
+  text-align: center;
+}
+
+.splash-signup-section button:hover {
+  background: linear-gradient(#83bf72, #578843);
+}
+
+.splash-signup-section input {
+  background-color: #fff;
+  color: #1c1e21;
+  border: 1px solid #ccd0d5;
+  border-radius: 5px;
+  font-size: 18px;
+  padding:8px 10px;
+}
+
+.bg-label {
+  color: #90949c;
+  font-weight: 600;
+}
+
+.name-inputs {
+  display: flex;
+  width: 399px;
+  justify-content: space-between;
+}
+
+.name-inputs input {
+  margin: 0;
+  width: 172px;
+  margin-bottom: 10px;
+}
+
+.email-input, .password-input {
+  margin-bottom: 10px
+}
+
+.email, .password {
+  width: 377px;
+}
+
+.signup-form select {
+  border: 1px solid #ccd0d4;
+  height: 30px;
+  padding: 0 0 0 6px;
+  width: 70px;
+}
+
+.signup-form-terms {
+    color: #7c7c7c;
+    font-size: 11px;
+    width: 300px;
+}
+
+.signup-form-terms span {
+  overflow-wrap: normal;
+  display: inline;
+}
+
+// FOOTER
+.splash-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.splash-footer {
+  width: 980px;
+  margin-top: 25px;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #7c7c7c;
+}
+
+.splash-footer a {
+  font-weight: 600;
+  font-family: sans-serif;
+  color: #4d68a1;
+  text-decoration: none;
+}
+
+.splash-footer a:hover {
+  text-decoration: underline;
+}
+
+.splash-footer div:last-child {
+  font-size: 11px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+hr {
+  margin-top: 10px;
+  border-top: 1px solid lightgray;
+}

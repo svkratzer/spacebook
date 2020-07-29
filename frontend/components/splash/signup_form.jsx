@@ -77,7 +77,7 @@ class SignupForm extends React.Component {
           <input type="text" 
             className="email"
             value={this.state.email}
-            placeholder="Email address"
+            placeholder="Mobile number or email"
             onChange={this.update('email')}/>
         </div>
 
@@ -90,7 +90,7 @@ class SignupForm extends React.Component {
         </div>
 
         <div className="birthday-inputs-container">
-          <div className="birthday-container-label">Birthday</div>
+          <div className="bg-label">Birthday</div>
 
           <select className="month"
             value={this.state.birthday.split('-')[1]}
@@ -115,7 +115,7 @@ class SignupForm extends React.Component {
         </div>
         
         <div className="gender-inputs-container">
-          <div className="gender-container-label">Gender</div>
+          <div className="bg-label">Gender</div>
           
           <label className="gender-input-label">
             <input type="radio"
@@ -151,14 +151,13 @@ class SignupForm extends React.Component {
             onChange={this.update('gender')} /> */}
         </div>
         
-        <p className="signup-form-terms">
+        <div className="signup-form-terms">
           By clicking Sign Up, you recognize that <span>this is a fake website</span> and is for <span>demonstrational purposes only</span>. Please, <span>DO NOT</span> use real and/or sesnsitive
           information when creating an account.
-        </p>
+        </div>
         
         <button className="submit-button" type="submit">Sign Up</button>
-
-        <p>{this.props.errors}</p>
+        
       </form>
     );
   }
