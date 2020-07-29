@@ -154,8 +154,6 @@ span {
   font-size: 17px;
 }
 
-// SIGNUP FORM
-
 .splash-signup-section h2 {
   font-size: 38px;
   font-weight: 600;
@@ -287,7 +285,6 @@ span {
   display: inline;
 }
 
-// FOOTER
 .splash-bottom {
   display: flex;
   justify-content: center;
@@ -323,8 +320,6 @@ span {
   border-top: 1px solid lightgray;
 }
 
-// HIDDEN ELEMENTS
-
 .splash-body .hidden {
   display: none;
 }
@@ -334,12 +329,22 @@ span {
   margin-bottom: 10px;
 }
 
-// ERRORS
-
 .login-error-message {
   background-color: #bd4b49;
   position: absolute;
   z-index: 1;
+}
+
+.login-error-message:after{
+    content:"";
+    position:absolute;
+    height:0;
+    width:0;
+    bottom:100px;
+    top:0;
+    z-index: 0;
+    border:20px solid transparent;
+    border-bottom: 25px solid #bd4b49;
 }
 
 .login-error-message p {
