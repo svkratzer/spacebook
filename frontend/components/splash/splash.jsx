@@ -31,17 +31,15 @@ class Splash extends React.Component {
                 <h2>Connect with friends and the world around you on MyFace.</h2>
                 <ul>
                   <li>
-                    <i className="info-icon"></i>
+                    <div><i class="far fa-images"></i></div>
                     <span>See photos and updates</span>&nbsp;from friends in News Feed.
                   </li>
                   <li>
-                    <i className="info-icon"></i>
+                    <div><i class="fas fa-desktop"></i></div>
                     <span>Share what's new</span>&nbsp;in your life on your Wall.
                   </li>
                   <li>
-                    <FontAwesomeIcon icon={['fas', 'code']} />
-                    <i className="info-icon" >
-                    </i>
+                    <div><i class="fas fa-search"></i></div>
                     <span>Find more</span>&nbsp;of what you're looking for with MyFace Search.
                   </li>
                 </ul>

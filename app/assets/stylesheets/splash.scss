@@ -140,12 +140,19 @@ span {
   padding-bottom: 10px;
 }
 
-.splash-info-section ul li > i {
+.splash-info-section ul li div i {
+  text-align: center;
   display: block;
+  color: #adb9d3;
+  font-size: 45px;
+}
+
+.splash-info-section ul li div {
+  display: flex;
+  align-items: center;
+margin-right: 15px;
   height: 56px;
   width: 56px;
-  border: 1px solid black;
-  margin-right: 16px;
 }
 
 .splash-info-section ul li > span {
