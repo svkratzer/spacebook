@@ -49,7 +49,8 @@ class Splash extends React.Component {
                 <h3>It's quick and easy.</h3>
                 <SignupFormContainer />
                 <hr/>
-                <button onClick={() => this.props.login(this.demoUserCredentials)}>
+                <button onClick={() => this.props.login(this.demoUserCredentials)}
+                  className="demo-login-button">
                   Demo Login
                 </button>
                 <div className="signup-form-terms">

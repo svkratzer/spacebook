@@ -10,18 +10,39 @@ class LoginForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   update(field) {
-    return (e) =>
+    return (e) => {
       this.setState({ [field]: e.currentTarget.value });
+      $(`.login-error-message`).addClass('hidden');
+    }
   }
 
   handleSubmit() {
     this.props.login(this.state);
   }
 
+  handleFocus(e) {
+    e.preventDefault();
+    $(`.login-error-message`).addClass('hidden');
+  }
+
+  handleBlur(e) {
+    e.preventDefault();
+    $(`.login-error-message`).addClass('hidden');
+  }
+
+  componentDidUpdate() {
+    if (this.props.errors.length) {
+      $('.login-error-message').removeClass('hidden');
+    }
+  }
+
   render() {
+    
     return (
       <form onSubmit={this.handleSubmit}
         className="login-form">
@@ -33,7 +54,13 @@ class LoginForm extends React.Component {
             <input type="text"
               value={this.state.email}
               className="login-input"
-              onChange={this.update('email')} />
+              onChange={this.update('email')} 
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur} />
+
+            <div className="login-error-message hidden">
+              <p>Incorrect email or password</p>
+            </div>
           </div>
 
           <div className="login-password-container">
@@ -42,7 +69,9 @@ class LoginForm extends React.Component {
             <input type="password"
               value={this.state.password}
               className="login-input"
-              onChange={this.update('password')}/>
+              onChange={this.update('password')}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur} />
           </div>
           <button>Log In</button>
         </div>

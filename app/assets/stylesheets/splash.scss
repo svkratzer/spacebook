@@ -208,8 +208,20 @@ span {
   margin-top: 20px;
 }
 
-.splash-signup-section button:hover {
+.splash-signup-section .submit-button:hover {
   background: linear-gradient(#83bf72, #578843);
+}
+
+.splash-signup-section .demo-login-button {
+   background: linear-gradient(#ae7955, #885943);
+  background-color: #a7784e;
+  box-shadow: inset 0 1px 1px #e3af88;
+  border-color: #6e4322 #6e4322 #513115;
+  border: 1px solid  #885943;
+}
+
+.splash-signup-section .demo-login-button:hover {
+  background: linear-gradient(#bf9372, #885943);
 }
 
 .splash-signup-section input {
@@ -336,4 +348,21 @@ span {
 .custom-gender-input {
   width: 377px;
   margin-bottom: 10px;
+}
+
+// ERRORS
+
+.login-error-message {
+  height: 64px;
+  right: 230px;
+  top: 74px;
+  width: 190px;
+  background-color: #bd4b49;
+  position: absolute;
+}
+
+.login-error-message p {
+  z-index: 1;
+  color: #ffffff;
+  position: relative;
 }
