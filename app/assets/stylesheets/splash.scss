@@ -16,8 +16,6 @@ span {
   font-weight: 600;
 }
 
-// --- Splash Page Header ---
-
 .splash-top {
   display: flex;
   justify-content: center;
@@ -45,8 +43,6 @@ span {
   cursor: pointer;
   text-decoration: none;
 }
-
-// Splash Page Header > Login Form
 
 .login-form {
   display: flex;
@@ -100,8 +96,6 @@ span {
   background: #365899;
 }
 
-// Splash Main
-
 .splash-main {
   display: flex;
   justify-content: center;
@@ -115,8 +109,6 @@ span {
   font-family: Verdana, sans-serif;
   margin-bottom: 70px;
 }
-
-// INFO SECTION
 
 .splash-info-section {
   font-family: "FreightSans Medium","Freight-SansBold",  Tahoma, Helvetica, Arial, sans-serif;
@@ -154,7 +146,7 @@ span {
   width: 56px;
   background-color: lightgrey;
   margin-right: 16px;
-};
+}
 
 .splash-info-section ul li > span {
   color: #333333;
@@ -213,7 +205,7 @@ span {
 }
 
 .splash-signup-section .demo-login-button {
-   background: linear-gradient(#ae7955, #885943);
+  background: linear-gradient(#ae7955, #885943);
   background-color: #a7784e;
   box-shadow: inset 0 1px 1px #e3af88;
   border-color: #6e4322 #6e4322 #513115;
@@ -237,7 +229,7 @@ span {
   color: #90949c;
   font-weight: 600;
   margin-top: 10px;
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
   font-size: 95%;
 }
 
