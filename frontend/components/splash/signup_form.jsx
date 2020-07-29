@@ -92,6 +92,7 @@ class SignupForm extends React.Component {
         <div className="password-input">
           <input type="password" 
             className="password"
+            autoComplete="current-password"
             value={this.state.password}
             placeholder="New password"
             onChange={this.update('password')}/>
@@ -124,7 +125,7 @@ class SignupForm extends React.Component {
 
         <div className="bg-label">Gender</div>
         <div className="gender-inputs-container">
-          
+
            <label className="gender-input-label">
             <input type="radio"
               name="gender"
