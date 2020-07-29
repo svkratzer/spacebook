@@ -3,16 +3,48 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 750px;
+    margin-top: 70px;
+    font-family: "FreightSans Medium","Freight-SansBold",  Tahoma, Helvetica, Arial, sans-serif;
 
     marquee {
-      font-size: 30px;
-      // margin-top: 30px;
-      // margin-bottom: 30px;
+      font-size: 100px;
     }
     
-    h1 {
-      font-size: 100px;
+    a {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: sans-serif;
+      color: #4d68a1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }    
+    
+    div {
+      text-align: center;
+      background-color: #edf0f5;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+
+      h1 {
+        font-size: 200px;
+      }
+
+      h2 {
+        font-size: 50px;
+        font-family: Tahoma, Helvetica, Arial, sans-serif;
+      }  
+
+      .hr {
+        width: 100%;
+        z-index: 1;
+      }
     }
 }
 
@@ -20,9 +52,9 @@
     animation:blinkingText 1.2s infinite;
 }
 @keyframes blinkingText{
-    0%{     color: red;    }
-    49%{    color: red }
+    0%{     color: #b94a48;    }
+    49%{    color: #b94a48 }
     0%{    color: transparent; }
     99%{    color: transparent;  }
-    100%{   color: red;    }
+    100%{   color: #b94a48;    }
 }

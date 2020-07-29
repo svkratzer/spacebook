@@ -55,6 +55,14 @@ class SignupForm extends React.Component {
     $('.custom-gender-input').addClass('hidden');
   }
 
+  updateGender(option) {
+    if (option === 'custom') {
+      this.showCustomGenderInput();
+    } else {
+      this.hideCustomGenderInput();
+    }
+  }
+
   render() {
     return (
       <form className="signup-form"
@@ -116,23 +124,23 @@ class SignupForm extends React.Component {
 
         <div className="bg-label">Gender</div>
         <div className="gender-inputs-container">
-            
+          
+           <label className="gender-input-label">
+            <input type="radio"
+              name="gender"
+              value="Female"
+              className="gender-input"
+              onClick={() => { this.updateGender('female'); this.update('gender') }}/>
+            Female
+          </label>  
+
           <label className="gender-input-label">
             <input type="radio"
               name="gender"
               value="Male"
               className="gender-input"
-              onClick={this.update('gender')}/>
+              onClick={() => { this.updateGender('male'); this.update('gender') }}/>
             Male
-          </label>
-
-          <label className="gender-input-label">
-            <input type="radio"
-              name="gender"
-              value="Female"
-              className="gender-input"
-              onClick={this.update('gender')}/>
-            Female
           </label>
 
           <label className="gender-input-label">
@@ -140,16 +148,16 @@ class SignupForm extends React.Component {
               name="gender"
               value="Custom"
               className="gender-input"
-              onClick={this.update('gender')}/>
+              onClick={() => {this.updateGender('custom'); this.update('gender')}}/>
             Custom
           </label>
 
-          {/* <input type="text"
-            className="custom-gender-input hidden"
-            value={this.state.gender}
-            placeholder="Gender (optional)"
-            onChange={this.update('gender')} /> */}
         </div>
+        <input type="text"
+          className="custom-gender-input hidden"
+          value={this.state.gender}
+          placeholder="Gender (optional)"
+          onChange={this.update('gender')} />
         
         <div className="signup-form-terms">
           By clicking Sign Up, you recognize that <span>this is a fake website</span> and is for <span>demonstrational purposes only</span>. Please, <span>DO NOT</span> use real and/or sesnsitive

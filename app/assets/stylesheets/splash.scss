@@ -226,7 +226,7 @@ span {
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 5px;;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 .gender-inputs-container {
@@ -265,6 +265,7 @@ span {
   height: 30px;
   font-size: 13px;
   padding: 5px;
+  margin-top: 3px;;
 }
 
 .month {
@@ -321,7 +322,18 @@ span {
   margin-bottom: 30px;
 }
 
-hr {
+.splash-body hr, .splash-bottom hr {
   margin-top: 10px;
   border-top: 1px solid lightgray;
+}
+
+// HIDDEN ELEMENTS
+
+.splash-body .hidden {
+  display: none;
+}
+
+.custom-gender-input {
+  width: 377px;
+  margin-bottom: 10px;
 }
