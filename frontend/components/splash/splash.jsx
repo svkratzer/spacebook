@@ -30,13 +30,16 @@ class Splash extends React.Component {
                 <h2>Connect with friends and the world around you on MyFace.</h2>
                 <ul>
                   <li>
-                    <span>See photos and updates</span> from friends in News Feed.
+                    <i className="info-icon"></i>
+                    <span>See photos and updates</span>&nbsp;from friends in News Feed.
                   </li>
                   <li>
-                    <span>Share what's new</span> in your life on your Wall.
+                    <i className="info-icon"></i>
+                    <span>Share what's new</span>&nbsp;in your life on your Wall.
                   </li>
                   <li>
-                    <span>Find more</span> of what you're looking for with MyFace Search.
+                    <i className="info-icon"></i>
+                    <span>Find more</span>&nbsp;of what you're looking for with MyFace Search.
                   </li>
                 </ul>
               </div>

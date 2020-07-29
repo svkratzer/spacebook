@@ -113,10 +113,10 @@ class SignupForm extends React.Component {
             {dateOptions.years}
           </select>
         </div>
-        
+
+        <div className="bg-label">Gender</div>
         <div className="gender-inputs-container">
-          <div className="bg-label">Gender</div>
-          
+            
           <label className="gender-input-label">
             <input type="radio"
               name="gender"

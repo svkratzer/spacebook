@@ -120,13 +120,15 @@ span {
 
 .splash-info-section {
   font-family: "FreightSans Medium","Freight-SansBold",  Tahoma, Helvetica, Arial, sans-serif;
+  width: 656px;
+  margin-right: 15.666;
 }
 
 .splash-info-section h2 {
   font-weight: 600;
   font-size: 32px;
   padding-top: 65px;
-  width: 565px;
+  width: 456px;
   margin-right: 15px;
   font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
 }
@@ -138,14 +140,26 @@ span {
 .splash-info-section ul > li {
   color: #666;
   width: 565px;
-  font-size: 18px;
+  font-size: 16px;
   word-spacing: 2px;
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  padding-bottom: 10px;
 }
+
+.splash-info-section ul li > i {
+  display: block;
+  height: 56px;
+  width: 56px;
+  background-color: lightgrey;
+  margin-right: 16px;
+};
 
 .splash-info-section ul li > span {
   color: #333333;
   font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 // SIGNUP FORM
@@ -153,7 +167,7 @@ span {
 .splash-signup-section h2 {
   font-size: 38px;
   font-weight: 600;
-  margin-top: 19px;
+  margin-top: 20px;
   font-family: "Freight-SansBold", "FreightSans Medium", Tahoma, Helvetica, Arial, sans-serif;
 }
 
@@ -190,6 +204,10 @@ span {
   text-align: center;
 }
 
+.splash-signup-section .submit-button {
+  margin-top: 20px;
+}
+
 .splash-signup-section button:hover {
   background: linear-gradient(#83bf72, #578843);
 }
@@ -206,6 +224,19 @@ span {
 .bg-label {
   color: #90949c;
   font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;;
+  font-size: 90%;
+}
+
+.gender-inputs-container {
+  font-size: 18px;
+  padding-top: 4px;
+  margin-bottom: 15px;
+}
+.gender-inputs-container label {
+  padding-left: 3px;
+  padding-right: 10px;
 }
 
 .name-inputs {
@@ -221,18 +252,31 @@ span {
 }
 
 .email-input, .password-input {
-  margin-bottom: 10px
+
 }
 
 .email, .password {
   width: 377px;
+  margin-bottom: 10px;
 }
 
 .signup-form select {
   border: 1px solid #ccd0d4;
   height: 30px;
-  padding: 0 0 0 6px;
-  width: 70px;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.month {
+  width: 71px;
+}
+
+.day {
+
+}
+
+.year {
+  width: 65px;
 }
 
 .signup-form-terms {
