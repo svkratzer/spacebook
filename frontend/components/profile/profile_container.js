@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_api_actions';
 import Profile from './profile';
+import { withRouter } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => {
   const userId = ownProps.match.params.userId;
@@ -17,6 +18,6 @@ const mDTP = (dispatch) => {
   };
 };
 
-const ProfileContainer = connect(mSTP)(Profile);
+const ProfileContainer = withRouter(connect(mSTP)(Profile));
 
 export default ProfileContainer;
