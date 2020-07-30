@@ -1,0 +1,59 @@
+.profile-main {
+  background-color: #edf0f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+
+  .profile-top {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cp-container {
+      height: 348px;
+      width: 100%;
+      background-image: linear-gradient( #7494cf,#b3c5e3, white);
+    }
+
+    .name-container {
+      height: 83px;
+      padding-bottom: 16px;
+    }
+
+    .line {
+      width: 801px;
+      border-top: lightgray solid 1px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .mini-nav {
+      height: 60px;
+      border-style: outset;
+      border-bottom: 1px solid lightgray;
+    }
+  }
+
+  .profile-middle {
+    width: 801px;
+    min-height: 40px;
+    margin-top: 16px;
+    padding: 16px;
+    background-color: white;
+  }
+}
+
+.demo-colors {
+  color:  #ECF3FF;
+  color:  #AAC9FF;
+  color:  #77A7FF;
+  color:  #1877F2;
+  color:  #2851A3;
+  color:  #1D3C78;
+  color:  #E7F3FF;
+  color:  #1877F2;
+  color:  #444950;
+}
