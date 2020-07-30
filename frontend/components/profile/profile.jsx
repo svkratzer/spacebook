@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Profile extends React.Component {
         <p>Name: {user.first_name} {user.last_name}</p>
         <p>Birthday: {user.birthday}</p>
         <button onClick={() => this.props.logout()}>logout</button>
+        <Link to="/newsfeed">newsfeed</Link>
       </div>
     );
   }
