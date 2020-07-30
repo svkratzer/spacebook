@@ -13,7 +13,6 @@ class Profile extends React.Component {
         <h2>Welcome, {user.first_name}.</h2>
         <p>Name: {user.first_name} {user.last_name}</p>
         <p>Birthday: {user.birthday}</p>
-        <button onClick={() => this.props.logout()}>logout</button>
         <Link to="/newsfeed">newsfeed</Link>
       </div>
     );
