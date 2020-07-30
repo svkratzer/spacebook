@@ -1,12 +1,41 @@
 .navbar-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 60px;
   width: 100%;
   color: #1c1e21;
   background-color: white;
-  box-shadow: 0 1px 3px #6E8CCF;
+  // box-shadow: 0 1px 10px #e4e4e4;
   z-index: 1;
   position: fixed;
-  border-bottom: 1px solid #6E8CCF;
+  border-bottom: 1px solid #dadada;
+  
+  .navbar-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 980px;
+
+    .active > i {
+      color: #3578E5;
+    }
+
+    .navbar-search {
+
+    }
+
+    .navbar-buttons-middle {
+
+    }
+
+    .navbar-buttons-right {
+
+    }
+  }
 }
     
-    
+.navbar-buttons > div {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}

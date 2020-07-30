@@ -9,6 +9,9 @@ class Newsfeed extends React.Component {
   render() {
     return (
       <section className="newsfeed-main">
+        
+        <NavBarContainer />
+
         <ul>
           <li>
             This is the newsfeed.
