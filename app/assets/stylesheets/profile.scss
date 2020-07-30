@@ -13,13 +13,16 @@
     align-items: center;
 
     .cp-container {
+      margin-top: 60px;
+      border-top: 1px #889bc1 solid;
       height: 348px;
       width: 100%;
-      background-image: linear-gradient( #7494cf,#b3c5e3, white);
+      background-image: linear-gradient(#6E8CCF, #93A8D2,#b3c5e3,#CCD7EC, #EBEDF2,#FDFDFD, white);
     }
 
     .name-container {
       height: 83px;
+      width: 100%;
       padding-bottom: 16px;
     }
 
@@ -32,7 +35,8 @@
 
     .mini-nav {
       height: 60px;
-      border-style: outset;
+      width: 100%;
+
       border-bottom: 1px solid lightgray;
     }
   }
@@ -41,7 +45,7 @@
     width: 801px;
     min-height: 40px;
     margin-top: 16px;
-    padding: 16px;
+    padding-bottom: 16px;
     background-color: white;
   }
 }
