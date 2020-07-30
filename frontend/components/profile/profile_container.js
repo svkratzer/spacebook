@@ -2,18 +2,21 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_api_actions';
 import Profile from './profile';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+  const userId = ownProps.match.params.userId;
+  const user = state.entities.users[userId];
   return {
-    user: state.entities.users[state.session.id]
+    userId,
+    user
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+
   };
 };
 
-const ProfileContainer = connect(mSTP, mDTP)(Profile);
+const ProfileContainer = connect(mSTP)(Profile);
 
 export default ProfileContainer;
