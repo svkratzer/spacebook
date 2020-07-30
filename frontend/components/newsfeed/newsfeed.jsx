@@ -15,6 +15,9 @@ class Newsfeed extends React.Component {
           <li>
             It contains newsfeed stuff.
           </li>
+          <li>
+            <button onClick={this.props.logout}>logout</button>
+          </li>
         </ul>
       </section>
     );
