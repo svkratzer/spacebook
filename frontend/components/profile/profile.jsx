@@ -20,3 +20,19 @@ class Profile extends React.Component {
 }
 
 export default Profile;
+
+// PROFILE PLAN
+// profile
+// profile_container
+// user_api_actions
+// ---- RECEIVE_USER, RECEIVE_USERS, RECEIVE_NAME
+// ---- receiveUser(user) 
+// ---- requestUser
+// ---- updateUser
+// user_api_util
+// ---- getUser(userId)
+// ---- updateUser(user)
+// users_controller
+// ---- update
+// routes
+// ---- update
