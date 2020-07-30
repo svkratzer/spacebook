@@ -34,5 +34,5 @@ export default Profile;
 // ---- updateUser(user)
 // users_controller
 // ---- update
-// routes
-// ---- update
+// routes [DONE]
+// ---- update [DONE]
