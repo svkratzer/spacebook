@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ProfileShow extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -18,4 +18,4 @@ class ProfileShow extends React.Component {
   }
 }
 
-export default ProfileShow;
+export default Profile;

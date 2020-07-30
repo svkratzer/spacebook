@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_api_actions';
-import ProfileShow from './profile';
+import Profile from './profile';
 
 const mSTP = (state) => {
   return {
@@ -14,6 +14,6 @@ const mDTP = (dispatch) => {
   };
 };
 
-const ProfileContainer = connect(mSTP, mDTP)(ProfileShow);
+const ProfileContainer = connect(mSTP, mDTP)(Profile);
 
 export default ProfileContainer;
