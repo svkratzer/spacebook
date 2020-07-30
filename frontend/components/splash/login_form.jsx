@@ -25,12 +25,12 @@ class LoginForm extends React.Component {
     this.props.login(this.state);
   }
 
-  handleFocus(e) {
+  handleFocus() {
     e.preventDefault();
     $(`.login-error-message`).addClass('hidden');
   }
 
-  handleBlur(e) {
+  handleBlur() {
     e.preventDefault();
     $(`.login-error-message`).addClass('hidden');
   }
