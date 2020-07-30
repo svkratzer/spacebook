@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 // Signing up a new user
 export const postUser = (user) => (
   $.ajax({

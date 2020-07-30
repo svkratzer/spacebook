@@ -1,6 +1,5 @@
 import React from 'react';
 import * as dateOptions from '../../util/date_options_util';
-import * as $ from 'jquery'
 
 class SignupForm extends React.Component {
   constructor(props) {
