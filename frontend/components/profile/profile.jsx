@@ -32,7 +32,7 @@ export default Profile;
 // user_api_util
 // ---- getUser(userId)
 // ---- updateUser(user)
-// users_controller
-// ---- update
+// users_controller [DONE]
+// ---- update [DONE]
 // routes [DONE]
 // ---- update [DONE]
