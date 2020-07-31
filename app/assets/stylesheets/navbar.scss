@@ -108,6 +108,8 @@
         text-decoration: none;
         margin-right: 10px;
         transition: 0.3s;
+        position: relative;
+        left: 14px;
 
         img {
           border-radius: 50%;
@@ -147,6 +149,7 @@
         height: 40px;
         width: 40px;
         position: relative;
+        left: 12px;
 
         .dropdown-button {
           display: flex;
@@ -188,8 +191,8 @@
           border-radius: 6px;
           box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
           z-index: 3;
-          right: 8px;
-          top: 46px;
+          right: 1px;
+          top: 44px;
 
           a {
             width: 100%;
