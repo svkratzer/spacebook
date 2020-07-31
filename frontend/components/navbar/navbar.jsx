@@ -4,6 +4,16 @@ import { NavLink, Link } from 'react-router-dom';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.showDropdown = this.showDropdown.bind(this);
+  }
+
+  showDropdown() {
+    return e => {
+      e.preventDefault();
+      $('.dropdown-content').removeClass('hidden');
+      $('.dropdown-button').addClass('clicked');
+    }
   }
   
   render() {
@@ -35,7 +45,9 @@ class NavBar extends React.Component {
             </NavLink>
 
             <div className="dropdown">
-              <button className="dropdown-button"><i className="fas fa-caret-down"></i></button>
+              <button className="dropdown-button clicker" onClick={this.showDropdown()}>
+                <i className="fas fa-caret-down clicker"></i>
+              </button>
               <div className="dropdown-content hidden">
                 <a href={`/#/users/${this.props.currentUser.id}`}>
                   <img src={profilePhoto} alt="" className="pfp" />

@@ -162,7 +162,15 @@
           background-color: #c6c8cd;
         } 
 
+        .dropdown-button.clicked {
+          color: #3578E5;
+          background-color: #E5F3FF;
+        }
 
+        .dropdown-button.clicked:hover {
+          background-color: #D9E7F2;
+        }
+        
         .dropdown-content {
           display: flex;
           flex-direction: column;

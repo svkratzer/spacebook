@@ -19,12 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // window.onclick = (event) => {
-  //   if (!event.target.matches('.dropdown-button')) {
-  //     const dropdown = document.getElementsByClassName("dropdown-content");
-  //     $(dropdown[0]).addClass('hidden');
-  //   }
-  // }
+  window.onclick = (event) => {
+    if (!event.target.matches('.clicker')) {
+      const dropdown = document.getElementsByClassName("dropdown-content");
+      $(dropdown[0]).addClass('hidden');
+
+      $('.dropdown-button').removeClass('clicked')
+      // $('.fa-caret-down').removeClass('clicked')
+    }
+  }
 
   const store = configureStore(preloadedState);
 
