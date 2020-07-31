@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from '../navbar/navbar';
+import NavBarContainer from '../navbar/navbar_container';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class Profile extends React.Component {
     return(
       <div className="profile-main">
 
-        <NavBar />
+        <NavBarContainer />
 
-        <div className="profile-top">
+          <div className="profile-top">
           <div className="cp-container"></div>
           <div className="name-container"></div>
           <div className="line"></div>

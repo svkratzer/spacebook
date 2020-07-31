@@ -3,11 +3,9 @@ import { logout } from '../../actions/session_api_actions';
 import NavBar from './navbar';
 import { withRouter } from 'react-router-dom';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   return {
-    currentUserId: state.session.id,
-    userId: ownProps.match.params.userId,
-    user: state.entities.users[ownProps.match.params.userId]
+    currentUser: state.entities.users[state.session.id],
   };
 };
 
