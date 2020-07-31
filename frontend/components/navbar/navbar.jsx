@@ -5,15 +5,9 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
-    debugger
-    console.log(this.props.currentUser)
-  }
   
   render() {
-    const tempProfilePic = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg";
-    debugger
+    const profilePhoto = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg";
     return (
       <section className="navbar-main">
         <div className="navbar-buttons">
@@ -33,7 +27,7 @@ class NavBar extends React.Component {
           <div className="nav-right-buttons">
             
             <Link to={`/users/${this.props.currentUser.id}`}>
-                {/* <img src={tempProfilePic} alt="" className="pfp" /> */}
+                {/* <img src={profilePhoto} alt="" className="pfp" /> */}
                 <div>{this.props.currentUser.first_name}</div>
             </Link>
 

@@ -9,23 +9,34 @@ class Profile extends React.Component {
 
   render() {
     const { user } = this.props
+    const coverPhoto = "https://wegotthiscovered.com/wp-content/uploads/2019/11/ezgif.com-webp-to-jpg-62-640x321.jpg"
+    const profilePhoto = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg"
+
+
     return(
       <div className="profile-main">
 
         <NavBarContainer />
 
-          <div className="profile-top">
-          <div className="cp-container"></div>
-          <div className="name-container"></div>
+        <div className="profile-top">
+
+          <div className="cp-container">
+            <div className="cp">
+              <img src={coverPhoto} alt=""/>
+            </div>
+            <div className="pfp">
+              <img src={profilePhoto} alt="" />
+            </div>
+          </div>
+          <div className="name-container">
+            <h2>{user.first_name} {user.last_name}</h2>
+          </div>
           <div className="line"></div>
           <div className="mini-nav"></div>
         </div>
 
         <div className="profile-middle">
-          <h2>Welcome, {user.first_name}.</h2>
-          <p>Name: {user.first_name} {user.last_name}</p>
           <p>Birthday: {user.birthday}</p>
-          <Link to="/newsfeed">newsfeed</Link>
         </div>
         
       </div>
