@@ -36,18 +36,18 @@ class NavBar extends React.Component {
 
             <div className="dropdown">
               <button className="dropdown-button"><i className="fas fa-caret-down"></i></button>
-              <div className="dropdown-content">
+              <div className="dropdown-content hidden">
                 <a href={`/#/users/${this.props.currentUser.id}`}>
                   <img src={profilePhoto} alt="" className="pfp" />
                   <div>
-                    <div className="name">{this.props.currentUser.first_name}</div>
+                    <div className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</div>
                     <div className="description">See your profile</div>
                   </div>
                 </a>
                 <div className="line"></div>
                 <div className="logout-button" onClick={this.props.logout}>
                   <div><i className="fas fa-sign-out-alt"></i></div>
-                  <span>logout</span>
+                  <span>Log Out</span>
                 </div>
               </div>
             </div>
