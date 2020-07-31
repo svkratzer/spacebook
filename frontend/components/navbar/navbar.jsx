@@ -23,7 +23,7 @@ class NavBar extends React.Component {
         <div className="navbar-buttons">
           <div className="navbar-search">
             <Link className="logo" to="/newsfeed">
-              <i className="fas fa-meh"></i>
+              <i className="fas fa-laugh"></i>
             </Link>
             <input className="searchbar" type="text" placeholder="Search MyFace"/>
           </div>
