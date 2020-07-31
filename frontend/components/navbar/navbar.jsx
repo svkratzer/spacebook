@@ -12,6 +12,9 @@ class NavBar extends React.Component {
       <section className="navbar-main">
         <div className="navbar-buttons">
           <div className="navbar-search">
+            <Link className="logo" to="/newsfeed">
+              <i className="fas fa-meh"></i>
+            </Link>
             <input className="searchbar" type="text" placeholder="Search MyFace"/>
           </div>
 
@@ -26,14 +29,27 @@ class NavBar extends React.Component {
 
           <div className="nav-right-buttons">
             
-            <Link to={`/users/${this.props.currentUser.id}`}>
-                {/* <img src={profilePhoto} alt="" className="pfp" /> */}
+            <NavLink className="profile-button" to={`/users/${this.props.currentUser.id}`}>
+                <img src={profilePhoto} alt="" className="pfp" />
                 <div>{this.props.currentUser.first_name}</div>
-            </Link>
+            </NavLink>
 
             <div className="dropdown">
-              <button><i className="fas fa-caret-down"></i></button>
-              <button onClick={this.props.logout}>logout</button>
+              <button className="dropdown-button"><i className="fas fa-caret-down"></i></button>
+              <div className="dropdown-content">
+                <a href={`/#/users/${this.props.currentUser.id}`}>
+                  <img src={profilePhoto} alt="" className="pfp" />
+                  <div>
+                    <div className="name">{this.props.currentUser.first_name}</div>
+                    <div className="description">See your profile</div>
+                  </div>
+                </a>
+                <div className="line"></div>
+                <div className="logout-button" onClick={this.props.logout}>
+                  <div><i className="fas fa-sign-out-alt"></i></div>
+                  <span>logout</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

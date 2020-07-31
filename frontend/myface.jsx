@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  // window.onclick = (event) => {
+  //   if (!event.target.matches('.dropdown-button')) {
+  //     const dropdown = document.getElementsByClassName("dropdown-content");
+  //     $(dropdown[0]).addClass('hidden');
+  //   }
+  // }
+
   const store = configureStore(preloadedState);
 
   // TESTING
