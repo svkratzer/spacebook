@@ -30,6 +30,11 @@ class Profile extends React.Component {
           </div>
           <div className="name-container">
             <h2>{user.first_name} {user.last_name}</h2>
+            
+            <div className="bio">
+              <p>{user.bio}</p>
+
+            </div>
           </div>
           <div className="line"></div>
           <div className="mini-nav"></div>

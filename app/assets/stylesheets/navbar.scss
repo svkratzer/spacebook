@@ -9,7 +9,7 @@
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   z-index: 1;
   position: fixed;
-  border-bottom: 1px solid #dadada;
+  // border-bottom: 1px solid #dadada;
   
   .navbar-buttons {
     display: flex;
@@ -31,9 +31,12 @@
         text-decoration: none;
         height: 40px;
         width: 40px;
+        position: absolute;
+        z-index: 1;
         border-radius: 50%;
         background-image: linear-gradient(#00AAFF, #0054EA);
         color: white;
+        right: 160px;
 
         i {
           font-size: 24px;
@@ -156,6 +159,7 @@
           background-color: #E4E6EC;
           border: none;
           transition: 0.3s;
+
         }
 
         .dropdown-button:hover {
@@ -275,7 +279,8 @@
 }
     
 .navbar-buttons > div {
-  width: 300px;
+  width: 200px;
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -294,4 +299,6 @@
     margin: 0 0 0 10px;
     padding: 0 0 0 16px;
     width: 242px;
+    position: absolute;
+    left: 38px;
 }
