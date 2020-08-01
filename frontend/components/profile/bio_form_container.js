@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/user_api_actions';
+import { withRouter } from 'react-router-dom'
 import BioForm from './bio_form';
 
-const mSTP = (state) => {
-  const currentUser = state.entities.users[state.session.id]
-  const charCount = currentUser.bio.length
+const mSTP = (state, ownProps) => {
+  const user = state.entities.users[ownProps.match.params.userId]
 
   return {
-    bio: currentUser.bio,
-    currentUserId: currentUser.id,
-    charCount
+    bio: user.bio,
+    currentUserId: state.session.id,
+    userId: user.id,
+    charCount: (user && user.bio) ? user.bio.length : 101
   };
 }
 
@@ -19,6 +20,6 @@ const mDTP = (dispatch) => {
   };
 }
 
-const BioFormContainer = connect(mSTP, mDTP)(BioForm);
+const BioFormContainer = withRouter(connect(mSTP, mDTP)(BioForm));
 
 export default BioFormContainer;

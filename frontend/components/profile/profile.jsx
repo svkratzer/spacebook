@@ -6,18 +6,26 @@ import BioFormContainer from './bio_form_container'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.userId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId) {
+      this.props.fetchUser(this.props.userId);
+    };
+  }
+
   render() {
-    const { user } = this.props
+    const user = this.props.user
     const coverPhoto = "https://wegotthiscovered.com/wp-content/uploads/2019/11/ezgif.com-webp-to-jpg-62-640x321.jpg"
     const profilePhoto = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg"
-
-
+    
+    if (user === undefined) return null;
+   
     return(
       <div className="profile-main">
 
@@ -37,6 +45,7 @@ class Profile extends React.Component {
             <h2>{user.first_name} {user.last_name}</h2>
             
             <div className="bio">
+              <p className="bio-text">{user.bio}</p>
               <BioFormContainer />
             </div>
           </div>

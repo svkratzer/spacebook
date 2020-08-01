@@ -44,16 +44,14 @@ class BioForm extends React.Component {
   }
 
   render() {
-
+    if (this.state.bio === undefined) return null;
 
     return (
       <div className="bio">
-        <p className="bio-text">{this.props.bio}</p>
-
-        <div className="edit-bio"
+        {(this.props.currentUserId === this.props.userId) && <div><div className="edit-bio"
           onClick={() => { this.showForm(); }}>
-          Edit bio
-        </div>
+          Edit bio </div>
+        
 
         <form className="bio-form hidden" onSubmit={this.handleSubmit}>
 
@@ -65,7 +63,7 @@ class BioForm extends React.Component {
 
           <span className="charCount"
             onChange={this.update('charCount')}>
-            {101 - this.state.bio.length} characters remaining
+            {this.state.bio ? 101 - this.state.bio.length : 101} characters remaining
           </span>
           <div className="form-bottom">
             <p>
@@ -79,7 +77,7 @@ class BioForm extends React.Component {
               </button>
             </div>
           </div>
-        </form>
+        </form></div>}
       </div>
     );
   }
