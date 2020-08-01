@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
               onFocus={this.handleFocus}
               onBlur={this.handleBlur} />
 
-            <div className="login-error-message hidden">
+            <div className="login-error-message error hidden">
               <p>Incorrect email or password</p>
             </div>
           </div>
