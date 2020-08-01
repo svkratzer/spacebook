@@ -10,12 +10,18 @@ class BioForm extends React.Component {
       charCount: this.props.charCount
     }
 
+    this.prevBio = this.props.bio
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateUser({ bio: this.state.bio, id: this.state.id });
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    this.setState({ bio: this.prevBio })
   }
 
   update(field) {
@@ -26,6 +32,7 @@ class BioForm extends React.Component {
 
   showForm() {
     $('.edit-bio').addClass('hidden');
+    $('.bio-text').addClass('hidden');
     $('.bio-form').removeClass('hidden');
   }
 
@@ -33,13 +40,16 @@ class BioForm extends React.Component {
     e.preventDefault();
     $('.bio-form').addClass('hidden');
     $('.edit-bio').removeClass('hidden');
+    $('.bio-text').removeClass('hidden');
   }
 
   render() {
 
 
     return (
-      <div>
+      <div className="bio">
+        <p className="bio-text">{this.props.bio}</p>
+
         <div className="edit-bio"
           onClick={() => { this.showForm(); }}>
           Edit bio
@@ -57,9 +67,16 @@ class BioForm extends React.Component {
             onChange={this.update('charCount')}>
             {101 - this.state.bio.length} characters remaining
           </span>
-          <div>
-            <div>
-              <button>Save</button>
+          <div className="form-bottom">
+            <p>
+              <i class="fas fa-question-circle"></i> Try editing your bio!
+            </p>
+            <div className="button-container">
+              <button className="cancel" onClick={ (e) => {this.hideForm(e); this.handleCancel(e)}}>Cancel</button>
+              <button onClick={ (e) => {this.hideForm(e); this.handleSubmit(e)}}
+                disabled={this.state.bio === this.prevBio}>
+                Save
+              </button>
             </div>
           </div>
         </form>

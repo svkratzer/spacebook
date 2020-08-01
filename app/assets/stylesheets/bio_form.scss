@@ -1,0 +1,95 @@
+.bio .hidden {
+  display: none;
+}
+
+.bio-form textarea {
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(240, 242, 245);
+  border-radius: 6px;
+  font-family: sans-serif;
+  height: 62px;
+  width: 300px;
+  resize: none;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid rgb(206, 208, 212);
+}
+
+.bio-form textarea:focus {
+  border: 1px solid #0A5BDD;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+
+  p {
+    color: rgb(101, 103, 107);
+  }
+
+  .edit-bio {
+    color: #3578E5;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  .edit-bio:hover {
+    text-decoration: underline;
+  }
+}
+
+.bio-form {
+  display: flex;
+  flex-direction: column;
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  span {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    left: 140px;
+    font-weight: 500;
+  }
+
+  .form-bottom {
+    width: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .button-container {
+    position: relative;
+    // left: 173px;
+  }
+
+  .button-container .cancel {
+    margin-right: 5px;
+  }
+
+  .button-container button {
+    background-color: rgb(228, 230, 234);
+    border: none;
+    font-size: 16px;
+    // font-weight: 600;
+    height: 38px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .button-container button:hover {
+    background-color: #c6c8cd;
+  }
+
+  .button-container button:disabled:hover {
+    background-color: rgb(228, 230, 234);
+  }
+}
