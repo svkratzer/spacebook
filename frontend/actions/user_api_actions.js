@@ -8,7 +8,7 @@ const receiveUser = user => ({
 });
 
 export const fetchUser = userId => dispatch => (
-  UserApiUtil.fetchUser(userId)
+  UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user)))
 );
 

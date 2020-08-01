@@ -7,6 +7,10 @@ class Profile extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.userId);
+  }
+
   render() {
     const { user } = this.props
     const coverPhoto = "https://wegotthiscovered.com/wp-content/uploads/2019/11/ezgif.com-webp-to-jpg-62-640x321.jpg"
