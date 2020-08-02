@@ -26,4 +26,6 @@ class Comment < ApplicationRecord
   has_one :post_author, 
     through: :post, 
     source: :author
+
+  has_many :reacts, as: :reactable
 end
