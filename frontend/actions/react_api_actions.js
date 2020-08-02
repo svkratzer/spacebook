@@ -23,8 +23,8 @@ export const createReact = react => dispatch =>
 
 export const updateReact = react => dispatch =>
   ReactApiUtil.updateReact(react)
-    .then(react => dispatch(receiveReact(react)))
+    .then(react => dispatch(receiveReact(react)));
 
 export const deleteReact= reactId => dispatch =>
   ReactApiUtil.deleteReact(reactId)
-    .then(react => dispatch(removeReact(react)))
+    .then(react => dispatch(removeReact(react)));
