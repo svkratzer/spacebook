@@ -47,13 +47,13 @@ export const fetchComments = (postId) => dispatch =>
     .then(comments => dispatch(receiveComments(comments)));
     
 // For making a POST request and adding a comment to the store
-export const createComment = comment => dispatch =>
-  ApiCommentUtil.postComment(comment)
+export const createComment = formComment => dispatch =>
+  ApiCommentUtil.postComment(formComment)
     .then(comment => dispatch(receiveComment(comment)));
 
 // For making a PATCH request and updating an existing comment in the store
-export const updateComment = comment => dispatch => 
-  ApiCommentUtil.updateComment(comment)
+export const updateComment = formComment => dispatch => 
+  ApiCommentUtil.updateComment(formComment)
     .then(comment => dispatch(receiveComment(comment)));
 
 // For making a DELETE request and removing a comment from the store
