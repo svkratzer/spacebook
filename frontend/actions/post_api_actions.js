@@ -38,7 +38,7 @@ export const fetchPosts = () => dispatch =>
     .then(payload => dispatch(receivePosts(payload)));
 
 export const createPost = formPost => dispatch => 
-  PostApiUtil.createPost(formPost)
+  PostApiUtil.postPost(formPost)
     .then(post => dispatch(receivePost(post)));
     
 export const updatePost = formPost => dispatch => 

@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_api_actions';
 import { 
   RECEIVE_POSTS, 
   RECEIVE_POST, 

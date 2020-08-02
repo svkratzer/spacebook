@@ -37,7 +37,7 @@ export const removeComments = postId => ({
 
 // For making a GET request and returning a single comment from the store
 export const fetchComment = id => dispatch => 
-  ApiCommentUtil.fetchComment(id)
+  ApiCommentUtil.getComment(id)
     .then(comment => dispatch(receiveComment(comment)));
 
 // For making a GET request and adding multiple comments to the store
@@ -53,7 +53,7 @@ export const createComment = formComment => dispatch =>
 
 // For making a PATCH request and updating an existing comment in the store
 export const updateComment = formComment => dispatch => 
-  ApiCommentUtil.updateComment(formComment)
+  ApiCommentUtil.patchComment(formComment)
     .then(comment => dispatch(receiveComment(comment)));
 
 // For making a DELETE request and removing a comment from the store
