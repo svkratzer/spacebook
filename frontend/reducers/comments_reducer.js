@@ -6,7 +6,7 @@ import {
   REMOVE_COMMENT, 
   REMOVE_COMMENTS} from '../actions/comment_api_actions';
 
-const commentsReducer = (state, action) => {
+const commentsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_COMMENT:
