@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../navbar/navbar_container';
 import BioFormContainer from './bio_form_container'
+import Wall from './wall'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -54,7 +55,20 @@ class Profile extends React.Component {
         </div>
 
         <div className="profile-middle">
-          
+
+          <div className="left-container">
+            <div className="about-container">
+              <div>About</div>
+            </div>
+            <div className="friends-container">
+              <div>Friends</div>
+            </div>
+          </div>
+
+          <div className="right-container">
+            <Wall />
+          </div>
+
         </div>
         
       </div>
