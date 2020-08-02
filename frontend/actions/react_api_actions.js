@@ -10,9 +10,9 @@ export const receiveReact = react => ({
   react
 });
 
-export const removeReact = react => ({
+export const removeReact = reactId => ({
   type: REMOVE_REACT,
-  react
+  reactId
 });
 
 // THUNK ACTION CREATORS
@@ -27,4 +27,4 @@ export const updateReact = react => dispatch =>
 
 export const deleteReact= reactId => dispatch =>
   ReactApiUtil.deleteReact(reactId)
-    .then(react => dispatch(removeReact(react)));
+    .then(react => dispatch(removeReact(react.id)));
