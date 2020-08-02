@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_000318) do
+ActiveRecord::Schema.define(version: 2020_08_02_004453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_000318) do
     t.integer "wall_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_url"
     t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["wall_id"], name: "index_posts_on_wall_id"
   end
