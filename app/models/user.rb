@@ -15,9 +15,22 @@
 #  updated_at      :datetime         not null
 
 class User < ApplicationRecord
+  
   validates :first_name, :last_name, :password_digest, :birthday, :session_token, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { minimum: 6}, allow_nil: true 
+  validates :password, length: { minimum: 6 }, allow_nil: true
+
+  has_many :wall_posts,
+    foreign_key: :wall_id,
+    class_name: :Post
+
+  has_many :posts,
+    foreign_key: :author_id,
+    class_name: :Post
+
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :comments
 
   after_initialize :ensure_session_token
 
