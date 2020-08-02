@@ -22,9 +22,9 @@ export const receiveComments = comments => ({
 })
 
 // Removes a single post from the store
-export const removeComment = comment => ({
+export const removeComment = commentId => ({
   type: REMOVE_COMMENT,
-  comment
+  commentId
 })
 
 // Removes multiple posts from the store
@@ -43,7 +43,7 @@ export const fetchComment = id => dispatch =>
 // For making a GET request and adding multiple comments to the store
 // NOTE: The index action for comments is nested under the posts resource
 export const fetchComments = (postId) => dispatch => 
-  ApiCommentUtil.getComments(postId, page)
+  ApiCommentUtil.getComments(postId)
     .then(comments => dispatch(receiveComments(comments)));
     
 // For making a POST request and adding a comment to the store
@@ -59,5 +59,5 @@ export const updateComment = formComment => dispatch =>
 // For making a DELETE request and removing a comment from the store
 export const deleteComment = commentId => dispatch => 
   ApiCommentUtil.deleteComment(commentId)
-    .then(comment => dispatch(removeComment(comment)));
+    .then(comment => dispatch(removeComment(comment.id)));
 
