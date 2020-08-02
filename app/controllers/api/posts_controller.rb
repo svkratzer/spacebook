@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @posts = current_user.wall_posts
+      .order("posts.created_at DESC")
     render :index
   end
 
@@ -12,9 +14,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.author_id = current_user.id
     if @post.save 
-        render :show
+      render :show
     else 
-        render json: @post.errors.full_messages
+      render json: @post.errors.full_messages
     end
   end
 
