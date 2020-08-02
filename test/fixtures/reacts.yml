@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emoji_type: MyString
+  user_id: 1
+  reactable_id: 1
+  reactable_type: 1
+
+two:
+  emoji_type: MyString
+  user_id: 1
+  reactable_id: 1
+  reactable_type: 1
