@@ -33,7 +33,7 @@ export const removeComments = postId => ({
   postId
 })
 
-/* THUNK ACTION CREATORS */
+/* THE FOLLOWING ARE "THUNK" ACTION CREATORS */
 
 // For making a GET request and returning a single comment from the store
 export const fetchComment = id => dispatch => 
