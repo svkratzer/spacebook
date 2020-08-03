@@ -8,7 +8,6 @@ import PostForm from './post_form';
 const mSTP = (state, ownProps) => {
   const arr = ownProps.location.pathname
   const userId = parseInt(arr[arr.length - 1], 10);
-  debugger
   return {
     currentUserId: state.session.id,
     userId: userId

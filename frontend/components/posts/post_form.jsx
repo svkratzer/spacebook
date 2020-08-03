@@ -9,7 +9,6 @@ class PostForm extends React.Component {
       wall_id: this.props.userId,
       body: ''
     }
-    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
