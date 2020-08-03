@@ -7,7 +7,7 @@ class Wall extends React.Component {
   render() {
     return(
       <div className="wall">
-        <PostFormContainer />
+        
         <PostIndexContainer />
       </div>
     );
