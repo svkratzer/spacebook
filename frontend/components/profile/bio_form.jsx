@@ -67,7 +67,7 @@ class BioForm extends React.Component {
           </span>
           <div className="form-bottom">
             <p>
-              <i class="fas fa-question-circle"></i> Try editing your bio!
+              <i className="fas fa-question-circle"></i> Try editing your bio!
             </p>
             <div className="button-container">
               <button className="cancel" onClick={ (e) => {this.hideForm(e); this.handleCancel(e)}}>Cancel</button>
