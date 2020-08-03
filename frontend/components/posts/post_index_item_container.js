@@ -7,9 +7,12 @@ import { fetchUser } from '../../actions/user_api_actions';
 import { fetchComments } from '../../actions/comment_api_actions';
 
 const mSTP = (state, ownProps) => {
+  const postId = ownProps.post.id.toString();
+  
   return {
     author: state.entities.users[ownProps.post.author_id],
-    recipient: state.entities.users[ownProps.post.wall_id]
+    recipient: state.entities.users[ownProps.post.wall_id],
+    comments: (state.entities.comments[postId] || [])
   };
 };
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CommentIndexItemContainer  from './comment_index_item_container';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props)
-
+    
   }
 
   componentDidMount() {
@@ -19,8 +20,9 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const { post, author, recipient } = this.props;
-
+    const { post, author, recipient, comments } = this.props;
+    
+    
     const names = (author.id === recipient.id) ? (
       <div>
         <Link to={`/users/${author.id}`}>
@@ -51,6 +53,14 @@ class PostIndexItem extends React.Component {
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
         
+        <ul className="comments">
+          {comments.map((comment) => (
+            <li className="comment" key={comment.id}>
+              <CommentIndexItemContainer postId={post.id} comment={comment}/>
+            </li>
+          ))}
+        </ul>
+
       </>
     );
   }
