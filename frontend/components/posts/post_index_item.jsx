@@ -7,7 +7,10 @@ class PostIndexItem extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <>
+        <p>{this.props.time}</p>
+        <p>{this.props.body}</p>
+      </>
     );
   }
 }
