@@ -31,20 +31,20 @@ export const removePosts = () => ({
 
 export const fetchPost = postId => dispatch =>
   PostApiUtil.getPost(postId)
-    .then(post => dispatch(receivePost(post)));
+    .then(post => dispatch(receivePost(post)))
 
 export const fetchPosts = () => dispatch => 
   PostApiUtil.getPosts()
-    .then(payload => dispatch(receivePosts(payload)));
+    .then(posts => dispatch(receivePosts(posts)))
 
 export const createPost = formPost => dispatch => 
   PostApiUtil.postPost(formPost)
-    .then(post => dispatch(receivePost(post)));
+    .then(post => dispatch(receivePost(post)))
     
 export const updatePost = formPost => dispatch => 
   PostApiUtil.patchPost(formPost)
-    .then(post => dispatch(receivePost(post)));
+    .then(post => dispatch(receivePost(post)))
 
 export const deletePost = postId => dispatch => 
   PostApiUtil.deletePost(postId)
-    .then(post => dispatch(removePost(post.id)));
+    .then(post => dispatch(removePost(post.id)))
