@@ -3,6 +3,7 @@ import { logout } from '../../actions/session_api_actions';
 import Profile from './profile';
 import { withRouter } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_api_actions';
+import { openModal } from '../../actions/modal_actions'
 
 const mSTP = (state, ownProps) => {
   
@@ -15,7 +16,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    openModalPostForm: () => dispatch(openModal('postForm'))
   }
 }
 
