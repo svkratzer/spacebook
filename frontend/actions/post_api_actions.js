@@ -33,8 +33,8 @@ export const fetchPost = postId => dispatch =>
   PostApiUtil.getPost(postId)
     .then(post => dispatch(receivePost(post)))
 
-export const fetchPosts = () => dispatch => 
-  PostApiUtil.getPosts()
+export const fetchPosts = (indexType, userId) => dispatch => 
+  PostApiUtil.getPosts(indexType, userId)
     .then(posts => dispatch(receivePosts(posts)))
 
 export const createPost = formPost => dispatch => 
