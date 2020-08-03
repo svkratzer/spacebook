@@ -12,10 +12,10 @@ export const getComment = commentId => {
   });
 };
 
-export const postComment = comment => {
+export const postComment = (comment, postId) => {
   return $.ajax({
     method: "POST",
-    url: "/api/comments",
+    url: `/api/posts/${postId}/comments`,
     data: { comment }
   });
 };
