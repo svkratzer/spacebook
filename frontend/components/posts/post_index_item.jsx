@@ -20,12 +20,20 @@ class PostIndexItem extends React.Component {
     const { post, author, recipient } = this.props;
 
     const names = (author.id === recipient.id) ? (
-      <div>{author.first_name} {author.last_name}</div>
+      <Link to={`/users/${author.id}`}>
+        {author.first_name} {author.last_name}
+      </Link>
     ) : (
       <div>
-        {author.first_name} {author.last_name}
+        <Link to={`/users/${author.id}`}>
+          {author.first_name} {author.last_name}
+        </Link>
+        &nbsp;
         <i className="fas fa-caret-right"></i>
-        {recipient.first_name} {recipient.last_name}
+        &nbsp;
+        <Link to={`/users/${recipient.id}`}>
+          {recipient.first_name} {recipient.last_name}
+        </Link> 
       </div>
     );
 
