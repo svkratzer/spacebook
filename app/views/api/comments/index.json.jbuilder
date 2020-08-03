@@ -1,5 +1,5 @@
-@comments.each do |comment|
-  json.set! comment.id do
+json.set! @post.id do
+  json.array! @comments.each do |comment|
     json.id comment.id
     json.body comment.body 
     json.author_id comment.author_id
