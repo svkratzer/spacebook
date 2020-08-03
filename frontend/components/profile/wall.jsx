@@ -1,5 +1,5 @@
 import React from 'react';
-import PostIndexContainer from '../posts/post_index_container';
+import WallContainer from '../posts/wall_container';
 
 class Wall extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Wall extends React.Component {
   render() {
     return(
       <div className="wall">
-        <PostIndexContainer />
+        <WallContainer />
       </div>
     );
   }
