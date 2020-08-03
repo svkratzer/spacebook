@@ -3,13 +3,40 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post-item {
-  padding: 10px;
+  padding: 15px 15px 15px 20px;
   border-radius: 8px;
   background-color: white;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   margin-top: 10px;
   margin-bottom: 10px;
+
+  .post-header div {
+    display: flex;
+    align-items: center;
+  }
+
+  .date {
+      font-size: 90%;
+      color: gray;
+      margin-top: 3px;
+      margin-bottom: 7px;
+  }
+
+  .post-header a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .post-header i {
+    font-size: 120%;
+    color: #595959;
+  }
 }
 
 .wall {
