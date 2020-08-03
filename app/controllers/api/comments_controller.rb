@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @post = Post.find_by(post_id: params[:post_id])
+    @post = Post.find_by(id: params[:post_id])
     @comments = @post.comments.order("comments.created_at DESC")
     render :index
   end
