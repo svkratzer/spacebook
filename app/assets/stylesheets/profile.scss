@@ -147,7 +147,7 @@
         align-items: center;
         border: 1px solid lightgray;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-        
+
         .post-form-button {
           display: flex;
           align-items: center;
@@ -155,10 +155,14 @@
           width: 84%;
           cursor: pointer;
           background-color: #f0f2f5;
-          
+          transition: 0.3s;
           border: none;
           border-radius: 50px;
           font-family: sans-serif;
+
+          &:hover {
+            background-color: #e6e8eb;
+          }
         }
 
         span {
