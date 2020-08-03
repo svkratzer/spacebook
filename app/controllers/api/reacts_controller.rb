@@ -7,6 +7,7 @@ class Api::ReactsController < ApplicationController
       render :show
     else
       render json: @react.errors.full_messages, status: 422
+    end
   end
 
   def update
