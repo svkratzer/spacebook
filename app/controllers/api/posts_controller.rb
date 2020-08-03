@@ -5,11 +5,9 @@ class Api::PostsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
 
     if params[:index_type] == "wall"
-      @posts = @user.wall_posts
-        .order("posts.created_at DESC")
+      @posts = @user.wall_posts.order("posts.created_at DESC")
     elsif params[:index_type] == "newsfeed"
-      @posts = @user.posts
-        .order("posts.created_at DESC")
+      @posts = @user.posts.order("posts.created_at DESC")
     end
     render :index
   end

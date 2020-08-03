@@ -29,7 +29,7 @@ class PostIndex extends React.Component {
               time={post.time}
               body={post.body}/>
           </li>
-        ))}
+        )).reverse()}
 
       </ul>
     );
