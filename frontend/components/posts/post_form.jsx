@@ -5,13 +5,21 @@ class PostForm extends React.Component {
     super(props)
 
     this.state = {
-      
+      author_id: this.props.currentUserId,
+      wall_id: this.props.userId,
+      body: ''
     }
+
+
   }
 
   render() {
     return(
-      <div></div>
+      <form className="postForm">
+
+        <textarea></textarea>
+        <button></button>
+      </form>
     );
   }
 }
