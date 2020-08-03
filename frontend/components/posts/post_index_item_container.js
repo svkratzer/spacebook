@@ -4,12 +4,14 @@ import PostIndexItem from './post_index_item';
 
 import { fetchPost } from '../../actions/post_api_actions';
 import { fetchUser } from '../../actions/user_api_actions';
-import { fetchComments } from '../../actions/comment_api_actions';
+import { fetchComments, createComment } from '../../actions/comment_api_actions';
 
 const mSTP = (state, ownProps) => {
   const postId = ownProps.post.id.toString();
   
   return {
+    currentUserId: state.entities.users[state.session.id],
+    postId: postId,
     author: state.entities.users[ownProps.post.author_id],
     recipient: state.entities.users[ownProps.post.wall_id],
     comments: (state.entities.comments[postId] || [])
@@ -20,7 +22,8 @@ const mDTP = dispatch => {
   return {
     fetchPost: (postId) => dispatch(fetchPost(postId)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
-    fetchComments: (postId) => dispatch(fetchComments(postId))
+    fetchComments: (postId) => dispatch(fetchComments(postId)),
+    createComment: (comment) => dispatch(createComment(comment))
   };
 };
 

@@ -6,6 +6,23 @@ class PostIndexItem extends React.Component {
   constructor(props) {
     super(props)
     
+    this.state = {
+      body: "",
+      author_id: this.props.currentUserId,
+      post_id: this.props.postId
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createCreate(this.state);
+  }
+
+  update(field) {
+    return e => {
+      e.preventDefault();
+      this.setState({ [field]: e.target.value })
+    }
   }
 
   componentDidMount() {
@@ -53,6 +70,12 @@ class PostIndexItem extends React.Component {
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
         
+        <form>
+            <input className="comment-input" type="text"
+              onChange={this.update('body')}
+              placeholder="Write a comment..."/>
+        </form>
+        
         <ul className="comments">
           {comments.map((comment) => (
             <li className="comment" key={comment.id}>
@@ -60,7 +83,7 @@ class PostIndexItem extends React.Component {
             </li>
           ))}
         </ul>
-
+        
       </>
     );
   }
