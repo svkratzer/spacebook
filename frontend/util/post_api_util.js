@@ -16,7 +16,7 @@ export const postPost = (post) => {
   return $.ajax({
     method: "POST",
     url: "/api/posts",
-    data: post,
+    data: post
   });
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { update } from 'lodash';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -10,11 +11,24 @@ class PostForm extends React.Component {
       body: ''
     }
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value })
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPost(this.state);
   }
 
   render() {
     return(
-      <form className="post-form">
+      <form className="post-form"
+        onSubmit={this.handleSubmit}>
         <div className="header">
           <span>Create Post</span> 
           <button onClick={this.props.closeModal}>
@@ -23,12 +37,15 @@ class PostForm extends React.Component {
         </div>
         <div className="line"></div>
 
-        <textarea placeholder="What's on your mind?">
+        <textarea placeholder="What's on your mind?"
+          value={this.state.body}
+          onChange={this.update('body')}>
 
         </textarea>
 
         <button className="submit-button" 
-          disabled={this.state.body === ""}>
+          disabled={this.state.body === ""}
+          onClick={this.handleSubmit}>
           Post
         </button>
       </form>
