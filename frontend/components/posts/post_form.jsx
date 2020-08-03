@@ -22,6 +22,7 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPost({post: this.state});
+    this.props.closeModal();
   }
 
   // handleSubmit(e) {
