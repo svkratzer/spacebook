@@ -50,7 +50,7 @@ class PostIndexItem extends React.Component {
         
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
-
+        
       </>
     );
   }
