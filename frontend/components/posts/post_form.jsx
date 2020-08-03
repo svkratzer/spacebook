@@ -1,5 +1,4 @@
 import React from 'react';
-import { update } from 'lodash';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -10,7 +9,7 @@ class PostForm extends React.Component {
       wall_id: this.props.userId,
       body: ''
     }
-
+    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,8 +21,19 @@ class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.createPost({post: this.state});
   }
+
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append('post[body]', this.state.body);
+  //   formData.append('post[author_id]', this.state.author_id);
+  //   formData.append('post[wall_id]', this.state.wall_id);
+
+  //   this.props.createPost(formData);
+  // }
+
 
   render() {
     return(
