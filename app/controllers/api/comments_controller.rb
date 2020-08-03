@@ -1,4 +1,5 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
     @post = Post.find_by(post_id: params[:post_id])

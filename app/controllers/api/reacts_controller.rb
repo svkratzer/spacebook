@@ -1,4 +1,5 @@
-class ReactsController < ApplicationController
+class Api::ReactsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     @react = React.new(react_params)
