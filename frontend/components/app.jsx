@@ -5,9 +5,11 @@ import { Route, Switch } from 'react-router-dom';
 import ProfileContainer from './profile/profile_container';
 import FourZeroFour from './error_page/four_zero_four';
 import NewsfeedContainer from './newsfeed/newsfeed_container';
+import Modal from './modal'
 
 const App = () => (
   <div>
+    <Modal />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <ProtectedRoute path="/newsfeed" component={NewsfeedContainer} />
