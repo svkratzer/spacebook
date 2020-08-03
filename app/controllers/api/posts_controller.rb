@@ -2,8 +2,15 @@ class Api::PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @posts = current_user.wall_posts
-      .order("posts.created_at DESC")
+    @user = User.find_by(id: params[:user_id])
+
+    if params[:index_type] == "wall"
+      @posts = @user.wall_posts
+        .order("posts.created_at DESC")
+    elsif params[:index_type] == "newsfeed"
+      @posts = @user.posts
+        .order("posts.created_at DESC")
+    end
     render :index
   end
 
