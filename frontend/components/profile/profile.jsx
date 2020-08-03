@@ -66,6 +66,13 @@ class Profile extends React.Component {
           </div>
 
           <div className="right-container">
+            <div className="post-form-button-container">
+              <img src={profilePhoto} />
+              <div className="post-form-button"
+                onClick={this.props.openModalPostForm}>
+                <span>What's on your mind, {user.first_name}?</span> 
+              </div>
+            </div>
             <Wall />
           </div>
 
