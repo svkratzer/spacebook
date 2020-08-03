@@ -1,5 +1,5 @@
 import React from 'react';
-import PostIndexItem from './post_index_item';
+import PostIndexItemContainer from './post_index_item_container';
 
 class PostIndex extends React.Component {
   constructor(props) {
@@ -25,9 +25,8 @@ class PostIndex extends React.Component {
 
         {posts.map((post) => (
           <li className="post-item" key={post.id}>
-            <PostIndexItem 
-              time={post.time}
-              body={post.body}/>
+            <PostIndexItemContainer 
+              post={post}/>
           </li>
         )).reverse()}
 
