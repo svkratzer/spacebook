@@ -1,3 +1,77 @@
 .post-form {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 468px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 16px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: 700;
+    font-family: sans-serif;
+    font-size: 24px;
+    position: relative;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 50%;
+      font-size: 16px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: 435px;
+      transition: 0.3s;
+      background-color: #E4E6EC;
+
+      &:hover {
+        background-color: #c6c8cd;
+      }
+    }
+  }
+
+  .line {
+    width: 100%;
+    border-top: 1px lightgrey solid;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    resize: none;
+    border: none;
+    font-family: sans-serif;
+    width: 100%;
+    height: 250px;
+    font-size: 18px;
+  }
+
+  .submit-button {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 8px;
+    color: white;
+    transition: 0.3s;
+    background-color: #0869FB;
+    border: none;
+
+    &:hover {
+      background-color: #0864EE;
+    }
+
+    &:disabled, &:disabled:hover {
+      background-color: #f2f2f2;
+      color: #B4B4B4;
+    }
+
+  }
 }
