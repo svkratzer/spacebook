@@ -14,6 +14,8 @@ class PostIndexItem extends React.Component {
     if (authorId !== recipientId) {
       this.props.fetchUser(recipientId);
     }
+
+    this.props.fetchComments(this.props.post.id);
   }
 
   render() {
@@ -47,6 +49,8 @@ class PostIndexItem extends React.Component {
         </div>
         
         <div className="post-body">{post.body}</div>
+        <div className="line"></div>
+
       </>
     );
   }

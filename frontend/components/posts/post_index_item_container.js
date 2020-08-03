@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import PostIndexItem from './post_index_item';
 
-import { fetchPost } from '../../actions/post_api_actions'
-import { fetchUser } from '../../actions/user_api_actions'
+import { fetchPost } from '../../actions/post_api_actions';
+import { fetchUser } from '../../actions/user_api_actions';
+import { fetchComments } from '../../actions/comment_api_actions';
 
 const mSTP = (state, ownProps) => {
   return {
@@ -15,7 +16,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
   return {
     fetchPost: (postId) => dispatch(fetchPost(postId)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchComments: (postId) => dispatch(fetchComments(postId))
   };
 };
 
