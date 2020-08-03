@@ -1,7 +1,8 @@
-export const getPosts = () => {
+export const getPosts = (indexType, userId) => {
   return $.ajax({
     method: "GET",
-    url: "/api/posts",
+    url: `/api/${userId}/posts`,
+    data: { indexType }
   });
 };
 
