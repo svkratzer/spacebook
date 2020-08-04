@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :reacts
     resources :comments, except: [:index, :create]
+    resources :friends, only: [:destroy]
     
     resources :users, only: [:create, :show, :update, :index] do 
       resources :posts, only: [:index]
-      resources :friends, only: [:create, :destroy, :index]
+      resources :friends, only: [:create, :index]
     end
 
     resources :posts, only: [:show, :create, :update, :destroy] do 
