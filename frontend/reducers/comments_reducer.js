@@ -13,7 +13,7 @@ const commentsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_COMMENT:
       const postId = action.comment.post_id;
-      (newState[postId]).push(action.comment);
+      (newState[postId]).unshift(action.comment);
       return newState;
     case RECEIVE_COMMENTS:
       return merge({}, state, action.comments);
