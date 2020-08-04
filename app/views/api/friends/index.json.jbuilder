@@ -10,4 +10,4 @@
   end
 end
 
-json.friend_count @friendships.count
+# json.friend_count @friendships.count
