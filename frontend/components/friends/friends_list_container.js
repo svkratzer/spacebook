@@ -7,6 +7,7 @@ import { fetchFriends } from '../../actions/friend_api_actions';
 const mSTP = (state, ownProps) => {
 
   return {
+    userId: ownProps.match.params.userId,
     friends: Object.values(state.entities.friends)
   };
 }
