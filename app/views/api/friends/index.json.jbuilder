@@ -9,3 +9,5 @@
     json.profile_url friend.profile_url
   end
 end
+
+json.friend_count @friendships.count
