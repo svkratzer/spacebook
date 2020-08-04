@@ -2,7 +2,7 @@ export const getFriends = (indexType, userId) => {
   return $.ajax({
     method: 'GET',
     url: `/api/users/${userId}/friends`,
-    data: { indexType }
+    data: { index_type: indexType } 
   });
 }
 
