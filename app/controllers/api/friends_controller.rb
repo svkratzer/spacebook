@@ -3,12 +3,13 @@ class Api::FriendsController < ApplicationController
 
   def index
     user = User.find_by(id: params[:user_id])
-
-    # if params[:index_type] === "friends"
-      @friendships = user.friends.includes(:friend)
+    if params[:index_type] == "friends"
+      @friendships = user.friends
     # elsif params[:index_type] === "suggested_friends"
     #   @friendships = 7
-    # end
+    else
+      @friends = []
+    end
     render :index
   end
 
@@ -17,7 +18,7 @@ class Api::FriendsController < ApplicationController
   
     ida = @friendship1.friend_a_id
     idb = @friendship1.friend_b_id
-    new_friend_params = {friend_a_id: ida, friend_b_id: idb}
+    new_friend_params = {friend_a_id: idb, friend_b_id: ida}
 
     @friendship2 = Friend.new(new_friend_params);
 
