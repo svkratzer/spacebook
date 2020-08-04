@@ -17,6 +17,10 @@
     border-top: lightgray solid 1px;
   }
 
+  .post-header {
+    position: relative;
+  }
+
   .post-header div {
     display: flex;
     align-items: center;
@@ -42,6 +46,22 @@
   .post-header i {
     font-size: 120%;
     color: #595959;
+  }
+
+  .post-header button {
+    border: none;
+    border-radius: 50%;
+    transition: 0.3s;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    &:hover {
+      background-color: #E4E6ED;
+    }
   }
 }
 
