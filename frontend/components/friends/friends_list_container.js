@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
-    fetchFriends: (userId) => dispatch(fetchFriends(userId))
+    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId))
   };
 }
 
