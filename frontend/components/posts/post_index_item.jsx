@@ -1,37 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndexItemContainer  from './comment_index_item_container';
+import CommentForm from './comment_form'
 
 class PostIndexItem extends React.Component {
   constructor(props) {
-    super(props)
-    
-    this.state = {
-      body: "",
-      author_id: this.props.currentUserId,
-      post_id: this.props.postId
-    }
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.createComment(this.state);
-  }
-
-  handleEnter(e) {
-    e.preventDefault();
-    if (e.keyCode === 13) {
-      this.handleSubmit(e)
-    }
-  }
-
-  update(field) {
-    return e => {
-      e.preventDefault();
-      this.setState({ [field]: e.target.value })
-    }
+    super(props);
   }
 
   componentDidMount() {
@@ -46,7 +20,14 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const { post, author, recipient, comments } = this.props;
+    const { 
+      post, 
+      author, 
+      recipient, 
+      comments, 
+      postId, 
+      deletePost ,
+      currentUserId } = this.props;
     
     
     const names = (author.id === recipient.id) ? (
@@ -66,6 +47,7 @@ class PostIndexItem extends React.Component {
         <Link to={`/users/${recipient.id}`}>
           {recipient.first_name} {recipient.last_name}
         </Link> 
+        
       </div>
     );
 
@@ -74,23 +56,24 @@ class PostIndexItem extends React.Component {
         <div className="post-header">
           {names}
           <div className="date">{post.time}</div>
+          {currentUserId === author.id && <button onClick={() => { deletePost(postId) }}>
+            <i className="fas fa-times"></i>
+          </button>}
         </div>
         
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
         
-        <form onSubmit={this.handleSubmit}>
-            <input className="comment-input" type="text"
-              onChange={this.update('body')}
-              placeholder="Write a comment..."/>
-        </form>
+        <CommentForm createComment={this.props.createComment} 
+          currentUserId={this.props.currentUserId} 
+          postId={this.props.postId}/>
 
         <ul className="comments">
           {comments.map((comment) => (
             <li className="comment" key={comment.id}>
               <CommentIndexItemContainer postId={post.id} comment={comment}/>
             </li>
-          )).reverse()}
+          ))}
         </ul>
         
       </>
