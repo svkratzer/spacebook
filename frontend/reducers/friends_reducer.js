@@ -11,7 +11,7 @@ const friendsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_FRIENDS:
-      return merge({}, action.users);
+      return merge({}, action.friends);
     case RECEIVE_FRIEND:
       return merge(newState, { [action.friend.friendship_id]: action.friend});
     case REMOVE_FRIEND:
