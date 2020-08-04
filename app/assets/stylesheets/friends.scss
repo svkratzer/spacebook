@@ -1,3 +1,66 @@
 // Place all the styles related to the friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.friends-header {
+  position: relative;
+  padding: 8px;
+  div {
+    padding: 0;
+  }
+  .friends-left {
+    padding: 8px;
+  }
+  .friends-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .friends-count {
+    font-size: 18px;
+    font-weight: 400;
+    color: #67696E;
+  }
+
+  .see-all-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 8px;
+    z-index: 1;
+    border-radius: 6px;
+    color: #0B68FB;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #F0F2F6;
+    }
+  }
+}
+
+.friends-grid {
+  display: grid;
+  width: 330px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 120px 120px 120px;
+  margin: 0 16px 0 16px;
+  grid-gap: 15px;
+}
+
+.friend-item img {
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+}
+
+.friend-item a {
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
