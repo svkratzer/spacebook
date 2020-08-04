@@ -11,11 +11,20 @@ class PostIndexItem extends React.Component {
       author_id: this.props.currentUserId,
       post_id: this.props.postId
     }
+    
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createCreate(this.state);
+    this.props.createComment(this.state);
+  }
+
+  handleEnter(e) {
+    e.preventDefault();
+    if (e.keyCode === 13) {
+      this.handleSubmit(e)
+    }
   }
 
   update(field) {
@@ -70,18 +79,18 @@ class PostIndexItem extends React.Component {
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
         
-        <form>
+        <form onSubmit={this.handleSubmit}>
             <input className="comment-input" type="text"
               onChange={this.update('body')}
               placeholder="Write a comment..."/>
         </form>
-        
+
         <ul className="comments">
           {comments.map((comment) => (
             <li className="comment" key={comment.id}>
               <CommentIndexItemContainer postId={post.id} comment={comment}/>
             </li>
-          ))}
+          )).reverse()}
         </ul>
         
       </>
