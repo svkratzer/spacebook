@@ -8,9 +8,9 @@ class FriendsModal extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="friend-modal-container">
 
-      </>
+      </div>
     );
   }
 }
