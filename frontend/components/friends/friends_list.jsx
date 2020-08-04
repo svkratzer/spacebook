@@ -4,7 +4,7 @@ import friendsReducer from '../../reducers/friends_reducer';
 class FriendsList extends React.Component {
   constructor(props) {
     super(props)
-    debugger
+    
   }
 
   componentDidMount() {
