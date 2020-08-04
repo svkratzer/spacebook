@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavBarContainer from '../navbar/navbar_container';
 import BioFormContainer from './bio_form_container'
 import Wall from './wall'
+import FriendsListContainer from '../friends/friends_list_container'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -61,7 +62,7 @@ class Profile extends React.Component {
               <div>About</div>
             </div>
             <div className="friends-container">
-              <div>Friends</div>
+              <FriendsListContainer />
             </div>
           </div>
 
