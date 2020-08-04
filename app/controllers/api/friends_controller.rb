@@ -1,5 +1,6 @@
 class Api::FriendsController < ApplicationController
-  
+  skip_before_action :verify_authenticity_token
+
   def index
     user = User.find_by(id: params[:user_id])
 
@@ -13,10 +14,12 @@ class Api::FriendsController < ApplicationController
 
   def create
     @friendship1 = Friend.new(friend_params)
+  
+    ida = @friendship1.friend_a_id
+    idb = @friendship1.friend_b_id
+    new_friend_params = {friend_a_id: ida, friend_b_id: idb}
 
-    friend_a_id = @friendship1.friend_a_id
-    friend_b_id = @friendship1.friend_b_id
-    @friendship2 = Friend.new(friend_b_id, friend_a_id)
+    @friendship2 = Friend.new(new_friend_params);
 
     if @friendship1.save && @friendship2.save
       @friend = User.find_by(id: @friendship1.friend_b_id)
