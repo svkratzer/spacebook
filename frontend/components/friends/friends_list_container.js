@@ -7,7 +7,7 @@ import { fetchFriends } from '../../actions/friend_api_actions';
 const mSTP = (state, ownProps) => {
 
   return {
-    
+    friends: Object.values(state.entities.friends),
   };
 }
 
