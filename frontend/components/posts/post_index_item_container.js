@@ -10,7 +10,7 @@ const mSTP = (state, ownProps) => {
   const postId = ownProps.post.id.toString();
   
   return {
-    currentUserId: state.entities.users[state.session.id],
+    currentUserId: state.session.id,
     postId: postId,
     author: state.entities.users[ownProps.post.author_id],
     recipient: state.entities.users[ownProps.post.wall_id],
