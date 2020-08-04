@@ -1,7 +1,7 @@
 @friendships.each do |friendship|
   friend = friendship.friend
 
-  json.set! friend.id do
+  json.set! friendship.id do
     json.friendship_id friendship.id
     json.friend_id friend.id
     json.first_name friend.first_name
