@@ -10,7 +10,7 @@ class Api::FriendsController < ApplicationController
   end
 
   def create
-    @friendship1 = Friend.new(friends_params)
+    @friendship1 = Friend.new(friend_params)
 
     friend_a_id = @friendship1.friend_a_id
     friend_b_id = @friendship1.friend_b_id
@@ -27,13 +27,12 @@ class Api::FriendsController < ApplicationController
   def destroy
     @friendship1 = Friend.find_by(id: params[:id])
     @friendship2 = Friend.find_by(friend_b_id: @friendship1.friend_b_id)
-
     @friendship1.destroy
     @friendship2.destroy
   end
 
   private
-  def friends_params
+  def friend_params
     params.require(:friend).permit(:friend_a_id, :friend_b_id)
   end 
 end
