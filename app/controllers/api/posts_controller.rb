@@ -37,7 +37,7 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy      
-  @post = Post.find_by(params[:id])
+  @post = Post.find_by(id: params[:id])
     @post.destroy
     render :show
   end
