@@ -30,7 +30,11 @@ class User < ApplicationRecord
 
   has_many :comments,
     foreign_key: :author_id,
-    class_name: :comments
+    class_name: :Comment
+  
+  has_many :friends,
+    foreign_key: :friend_a_id,
+    class_name: :Friend
 
   after_initialize :ensure_session_token
 
