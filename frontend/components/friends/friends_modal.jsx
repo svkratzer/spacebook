@@ -13,7 +13,7 @@ class FriendsModal extends React.Component {
   }
 
   gridify(friends) {
-      const {currentUserId, userId, destroyFriend} = this.props;
+      const {currentUserId, userId} = this.props;
       return friends.map( (friend) => {
         let photoUrl = null;
 
@@ -29,11 +29,6 @@ class FriendsModal extends React.Component {
             <Link to={`/users/${friend.friend_id}`}>
               {friend.first_name} {friend.last_name}
             </Link>
-            {/* { currentUserId === userId &&
-              <button onClick={() => {destroyFriend(friend.friendship_id)}}>
-                Remove Friend
-              </button>
-            } */}
           </div>
         );
 
