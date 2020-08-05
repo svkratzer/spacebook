@@ -62,7 +62,7 @@ class FriendsList extends React.Component {
           </div>
 
           <div className="see-all-button"
-            onClick={(e) => {e.preventDefault();}}>
+            onClick={this.props.openModalFriendsModal}>
             See All
           </div>
         </div>
