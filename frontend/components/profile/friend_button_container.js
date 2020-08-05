@@ -7,7 +7,7 @@ const mSTP = (state, ownProps) => {
   const friends = Object.values(state.entities.friends)
   const friendsIds = friends.map(friend => (friend.friend_id));
   const currentUserId = state.session.id
-  
+  const alreadyFriends = friendsIds.includes(currentUserId);
   const friendshipId = state.entities.friends[currentUserId] ? (
     state.entities.friends[currentUserId].friendship_id
   ) : (
@@ -19,14 +19,15 @@ const mSTP = (state, ownProps) => {
     userId: ownProps.match.params.userId,
     user: state.entities.users[ownProps.match.params.userId],
     friendsIds: friendsIds,
-    friendshipId: friendshipId
+    friendshipId: friendshipId,
+    alreadyFriends: alreadyFriends
   };
 };
 
 const mDTP = (dispatch) => {
   return {
     createFriend: (friendship, userId) => dispatch(createFriend(friendship, userId)),
-    destroyFriend: (friendshipId) => dispatch(destroyFriend(friendshipId)),
+    destroyFriend: (friendshipId, friendId) => dispatch(destroyFriend(friendshipId, friendId)),
     fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId))
   }
 }
