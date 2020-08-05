@@ -16,9 +16,9 @@ const receiveFriends = (friends) => ({
   friends
 });
 
-const removeFriend = (friendshipId) => ({
+const removeFriend = (friendId) => ({
   type: REMOVE_FRIEND,
-  friendshipId
+  friendId
 })
 
 // THUNK ACTION CREATORS
@@ -31,6 +31,6 @@ export const createFriend = (friendship, userId) => dispatch =>
   FriendApiUtil.postFriend(friendship, userId)
     .then(friend => dispatch(receiveFriend(friend)))
 
-export const destroyFriend = friendshipId => dispatch => 
+export const destroyFriend = (friendshipId, friendId) => dispatch => 
   FriendApiUtil.deleteFriend(friendshipId)
-    .then(() => dispatch(removeFriend(friendshipId)))
+    .then(() => dispatch(removeFriend(friendId)))
