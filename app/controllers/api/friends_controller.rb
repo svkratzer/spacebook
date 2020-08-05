@@ -21,9 +21,10 @@ class Api::FriendsController < ApplicationController
     new_friend_params = {friend_a_id: idb, friend_b_id: ida}
 
     @friendship2 = Friend.new(new_friend_params);
-
+    # debugger
     if @friendship1.save && @friendship2.save
-      @friend = User.find_by(id: @friendship1.friend_b_id)
+      @friend = User.find_by(id: @friendship1.friend_a_id)
+      # debugger
       render :show
     else
       render json: @friendship.errors.full_messages, status: 422
@@ -33,7 +34,7 @@ class Api::FriendsController < ApplicationController
   def destroy
     @friendship1 = Friend.find_by(id: params[:id])
     @friendship2 = Friend.select("*").where(friend_a_id: @friendship1.friend_b_id).find_by(friend_b_id: @friendship1.friend_a_id)
-    
+    # debugger
     
     @friendship1.destroy
     @friendship2.destroy
