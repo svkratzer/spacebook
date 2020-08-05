@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import FriendsList from './friends_list';
 
 import { fetchFriends } from '../../actions/friend_api_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => {
 
@@ -14,7 +15,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
-    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId))
+    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId)),
+    openModalFriendsModal: () => dispatch(openModal('friendsModal'))
   };
 }
 
