@@ -20,22 +20,14 @@ class FriendButton extends React.Component {
 
   handleUnfriend(e) {
     e.preventDefault();
-    this.props.destroyFriend(this.props.friendshipId)
-  }
-
-  componentDidMount() {
-    
-  }
-
-  componentDidUpdate() {
-    this.props.fetchFriends('friends', this.props.userId);
+    this.props.destroyFriend(this.props.friendshipId, this.props.currentUserId)
   }
 
   render() {
     const {friendsIds, currentUserId} = this.props
     const alreadyFriends = friendsIds.includes(currentUserId);
 
-
+    
     const friendButton = alreadyFriends ? (
       <button className = "remove-friend"
         onClick={this.handleUnfriend}>
