@@ -32,9 +32,8 @@ class Api::FriendsController < ApplicationController
 
   def destroy
     @friendship1 = Friend.find_by(id: params[:id])
-    debugger
-    @friendship2 = Friend.where(friend_a_id: @friendship1.friend_b_id).where(friend_b_id: @friendship1.friend_a_id)
-    debugger
+    @friendship2 = Friend.select("*").where(friend_a_id: @friendship1.friend_b_id).find_by(friend_b_id: @friendship1.friend_a_id)
+    
     
     @friendship1.destroy
     @friendship2.destroy
