@@ -4,7 +4,7 @@ class Api::FriendsController < ApplicationController
   def index
     user = User.find_by(id: params[:user_id])
     if params[:index_type] == "friends"
-      @friendships = user.friends
+      @friendships = user.friendships
     # elsif params[:index_type] === "suggested_friends"
     #   @friendships = 7
     else
