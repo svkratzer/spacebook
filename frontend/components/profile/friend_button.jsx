@@ -9,13 +9,19 @@ class FriendButton extends React.Component {
       friend_b_id: this.props.userId
     }
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleFriend = this.handleFriend.bind(this);
+    this.handleUnfriend = this.handleUnfriend.bind(this);
   }
 
-  handleClick(e) {
+  handleFriend(e) {
     e.preventDefault();
     this.props.createFriend(this.friendship, this.props.currentUserId)
   } 
+
+  handleUnfriend(e) {
+    e.preventDefault();
+    this.props.destroyFriend(this.props.friendshipId)
+  }
 
   componentDidMount() {
 
@@ -31,17 +37,23 @@ class FriendButton extends React.Component {
 
 
     const friendButton = alreadyFriends ? (
-      <button>
-        Remove Friend
+      <button className = "remove-friend"
+        onClick={this.handleUnfriend}>
+        Friends
+        &nbsp;
+        <i className="fas fa-user-check"></i>
       </button>
       ) : (
-      <button onClick={this.handleClick}>
+      <button className = "add-friend"
+        onClick={this.handleFriend}>
         Add Friend
+        &nbsp;
+        <i className="fas fa-user-plus"></i>
       </button>
     );
 
     return (
-      <div className="add-friend">
+      <div className="friend-button">
         {friendButton}
       </div>
     );
