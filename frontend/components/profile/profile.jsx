@@ -9,6 +9,8 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
 
+    this.defaultCoverPhoto = "https://scx2.b-cdn.net/gfx/news/hires/2019/4-space.jpg"
+    this.defaultProfilePhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   }
 
   componentDidMount() {
@@ -22,12 +24,15 @@ class Profile extends React.Component {
   }
 
   render() {
-    const user = this.props.user
-    const coverPhoto = "https://wegotthiscovered.com/wp-content/uploads/2019/11/ezgif.com-webp-to-jpg-62-640x321.jpg"
-    const profilePhoto = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg"
-    
+    const {user, friendsIds, currentUserId} = this.props
     if (user === undefined) return null;
+
+    const coverPhoto = user.cover_url || this.defaultCoverPhoto
+    const profilePhoto = user.profile_url || this.defaultProfilePhoto
+    const isCurrentUser = parseInt(this.props.userId) === this.props.currentUserId;
+    const alreadyFriends = friendsIds.includes(currentUserId);
    
+    const friendButton = alreadyFriends ? (<button>Already Friend</button>) : (<button>Remove Friend</button>);
     return(
       <div className="profile-main">
 
@@ -52,7 +57,15 @@ class Profile extends React.Component {
             </div>
           </div>
           <div className="line"></div>
-          <div className="mini-nav"></div>
+          <div className="mini-nav">
+            
+              {!isCurrentUser &&
+                <div className="add-friend">
+                  {friendButton}
+                </div>
+              }
+
+          </div>
         </div>
 
         <div className="profile-middle">
