@@ -7,7 +7,8 @@ class Api::PostsController < ApplicationController
     if params[:index_type] == "wall"
       @posts = @user.wall_posts.order("posts.created_at DESC")
     elsif params[:index_type] == "newsfeed"
-      @posts = @user.posts.order("posts.created_at DESC")
+      ids = @user.friends
+      @posts = @user.posts + @user.friend_posts
     end
     render :index
   end
