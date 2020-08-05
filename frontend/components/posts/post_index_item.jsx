@@ -31,8 +31,8 @@ class PostIndexItem extends React.Component {
       deletePost ,
       currentUserId } = this.props;
     
-    const profilePhoto = author.profile_url || this.defaultPhoto
     if (!author || !recipient) return null;
+    const profilePhoto = author.profile_url || this.defaultPhoto
 
     const names = (author.id === recipient.id) ? (
       <div>
