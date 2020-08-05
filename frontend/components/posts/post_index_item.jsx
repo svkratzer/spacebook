@@ -6,6 +6,8 @@ import CommentForm from './comment_form'
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
   }
 
   componentDidMount() {
@@ -29,6 +31,7 @@ class PostIndexItem extends React.Component {
       deletePost ,
       currentUserId } = this.props;
     
+    const profilePhoto = author.profile_url || this.defaultPhoto
     
     const names = (author.id === recipient.id) ? (
       <div>
@@ -54,11 +57,18 @@ class PostIndexItem extends React.Component {
     return (
       <>
         <div className="post-header">
-          {names}
-          <div className="date">{post.time}</div>
+
+          <img src={profilePhoto} className="post-photo"/>
+
+          <div className="date-name">
+            {names}
+            <div className="date">{post.time}</div>
+          </div>
+
           {currentUserId === author.id && <button onClick={() => { deletePost(postId) }}>
             <i className="fas fa-times"></i>
           </button>}
+
         </div>
         
         <div className="post-body">{post.body}</div>
