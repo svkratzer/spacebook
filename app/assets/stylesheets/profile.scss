@@ -81,6 +81,8 @@
     .mini-nav {
       height: 60px;
       width: 100%;
+      display: flex;
+      justify-content: center;
 
       border-bottom: 1px solid lightgray;
     }
@@ -90,10 +92,8 @@
     display: grid;
     padding-top: 15px;
     width: 878px;
-    position: relative;
     min-height: 400px;
     margin-bottom: 25px;
-
     
     .left-container {
       width: 362px;
@@ -180,6 +180,29 @@
     } 
   }
 }
+
+.mini-nav-main {
+  // position: relative;
+  
+  width: 878px;
+}
+
+.friend-button button {
+  // position: absolute;
+  margin-top: 10px;
+  padding: 10px 15px 10px 15px;
+  font-size: 16px;
+  // left: 828px;
+  border: none;
+  border-radius: 8px;
+  background-color: #F0F2F6;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #e1e3e7;
+  }
+}
+
 
 .demo-colors {
   color:  #ECF3FF;
