@@ -31,7 +31,7 @@ class Profile extends React.Component {
     const coverPhoto = user.cover_url || this.defaultCoverPhoto
     const profilePhoto = user.profile_url || this.defaultProfilePhoto
 
-    const currentUserPhoto = this.props.currentUserPhoto;
+    const currentUserPhoto = this.props.currentUserPhoto || this.defaultCoverPhoto;
 
     const isCurrentUser = parseInt(this.props.userId) === this.props.currentUserId;
     
