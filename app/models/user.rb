@@ -32,9 +32,17 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Comment
   
-  has_many :friends,
+  has_many :friendships,
     foreign_key: :friend_a_id,
     class_name: :Friend
+
+  has_many :friends,
+    through: :friendships,
+    source: :friend
+
+  has_many :friend_posts,
+    through: :friends,
+    source: :posts
 
   after_initialize :ensure_session_token
 
