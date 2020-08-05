@@ -6,11 +6,11 @@ export const getFriends = (indexType, userId) => {
   });
 }
 
-export const postFriend = (friendship, userId) => {
+export const postFriend = (friend, userId) => {
   return $.ajax({
     method: 'POST',
     url: `/api/users/${userId}/friends`,
-    data: { friendship }
+    data: { friend }
   });
 }
 

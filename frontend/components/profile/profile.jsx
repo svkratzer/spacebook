@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../navbar/navbar_container';
 import BioFormContainer from './bio_form_container'
+import FriendButtonContainer from './friend_button_container'
 import Wall from './wall'
 import FriendsListContainer from '../friends/friends_list_container'
 
@@ -24,15 +25,13 @@ class Profile extends React.Component {
   }
 
   render() {
-    const {user, friendsIds, currentUserId} = this.props
+    const { user } = this.props
     if (user === undefined) return null;
 
     const coverPhoto = user.cover_url || this.defaultCoverPhoto
     const profilePhoto = user.profile_url || this.defaultProfilePhoto
     const isCurrentUser = parseInt(this.props.userId) === this.props.currentUserId;
-    const alreadyFriends = friendsIds.includes(currentUserId);
-   
-    const friendButton = alreadyFriends ? (<button>Already Friend</button>) : (<button>Remove Friend</button>);
+    
     return(
       <div className="profile-main">
 
@@ -59,11 +58,9 @@ class Profile extends React.Component {
           <div className="line"></div>
           <div className="mini-nav">
             
-              {!isCurrentUser &&
-                <div className="add-friend">
-                  {friendButton}
-                </div>
-              }
+            { !isCurrentUser &&
+              <FriendButtonContainer />
+            }
 
           </div>
         </div>
