@@ -8,7 +8,7 @@ class Api::FriendsController < ApplicationController
     # elsif params[:index_type] === "suggested_friends"
     #   @friendships = 7
     else
-      @friends = []
+      @friendships = []
     end
     render :index
   end
@@ -32,7 +32,10 @@ class Api::FriendsController < ApplicationController
 
   def destroy
     @friendship1 = Friend.find_by(id: params[:id])
-    @friendship2 = Friend.find_by(friend_b_id: @friendship1.friend_b_id)
+    debugger
+    @friendship2 = Friend.where(friend_a_id: @friendship1.friend_b_id).where(friend_b_id: @friendship1.friend_a_id)
+    debugger
+    
     @friendship1.destroy
     @friendship2.destroy
   end
