@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
+    this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
     this.showDropdown = this.showDropdown.bind(this);
   }
 
@@ -17,7 +17,7 @@ class NavBar extends React.Component {
   }
   
   render() {
-    const profilePhoto = "https://cdn1.thr.com/sites/default/files/imagecache/portrait_300x450/2011/06/nicolas_cage_2011_a_p.jpg";
+    const profilePhoto = this.props.currentUser.profile_url || this.defaultPhoto;
     return (
       <section className="navbar-main">
         <div className="navbar-buttons">
