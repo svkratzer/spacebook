@@ -8,8 +8,18 @@ import { createFriend, destroyFriend } from '../../actions/friend_api_actions'
 const mSTP = (state, ownProps) => {
   const friends = Object.values(state.entities.friends)
   const friendsIds = friends.map(friend => (friend.friend_id));
+  const currentUserId = state.session.id
+
+  const currentUserPhoto = state.entities.users[currentUserId] ? (
+    state.entities.users[currentUserId].profile_url
+  ) : (
+    null
+  )
+
   return {
-    currentUserId: state.session.id,
+    currentUserId: currentUserId,
+    currentUser: state.entities.users[currentUserId],
+    currentUserPhoto: currentUserPhoto,
     userId: ownProps.match.params.userId,
     user: state.entities.users[ownProps.match.params.userId],
     friendsIds: friendsIds
