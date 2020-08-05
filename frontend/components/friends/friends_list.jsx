@@ -12,6 +12,12 @@ class FriendsList extends React.Component {
     this.props.fetchFriends('friends', this.props.userId);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.userId !== this.props.userId) {
+      this.props.fetchFriends('friends', newProps.userId);
+    }
+  }
+
   gridify(friends) {
     if (friends.length >= 9) {
       return friends.slice(0, 9).map((friend) => {
