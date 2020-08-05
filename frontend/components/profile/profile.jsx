@@ -25,11 +25,14 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { user } = this.props
+    const { user, currentUser } = this.props
     if (user === undefined) return null;
 
     const coverPhoto = user.cover_url || this.defaultCoverPhoto
     const profilePhoto = user.profile_url || this.defaultProfilePhoto
+
+    const currentUserPhoto = this.props.currentUserPhoto;
+
     const isCurrentUser = parseInt(this.props.userId) === this.props.currentUserId;
     
     return(
@@ -58,9 +61,12 @@ class Profile extends React.Component {
           <div className="line"></div>
           <div className="mini-nav">
             
+            <div className="mini-nav-main">
+
             { !isCurrentUser &&
               <FriendButtonContainer />
             }
+            </div>
 
           </div>
         </div>
@@ -78,10 +84,10 @@ class Profile extends React.Component {
 
           <div className="right-container">
             <div className="post-form-button-container">
-              <img src={profilePhoto} />
+              <img src={currentUserPhoto} />
               <div className="post-form-button"
                 onClick={this.props.openModalPostForm}>
-                <span>What's on your mind, {user.first_name}?</span> 
+                <span>What's on your mind, {currentUser.first_name}?</span> 
               </div>
             </div>
             <Wall />
