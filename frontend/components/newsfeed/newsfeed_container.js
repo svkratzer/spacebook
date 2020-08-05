@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_api_actions';
+import { openModal } from '../../actions/modal_actions';
 import Newsfeed from './newsfeed';
 
 const mSTP = (state) => {
   return {
-    user: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+    openModalPostForm: () => dispatch(openModal('postForm'))
   };
 };
 
