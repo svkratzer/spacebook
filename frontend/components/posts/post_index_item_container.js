@@ -8,7 +8,9 @@ import { fetchComments, createComment } from '../../actions/comment_api_actions'
 
 const mSTP = (state, ownProps) => {
   const postId = ownProps.post.id.toString();
-  
+
+  const recipient = state.entities.users[ownProps.post.wall_id]
+
   return {
     currentUserId: state.session.id,
     postId: postId,

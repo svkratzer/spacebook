@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBarContainer from '../navbar/navbar_container'
+import NavBarContainer from '../navbar/navbar_container';
+import NewsfeedPostIndexContainer from './newsfeed_post_index_container'
 
 class Newsfeed extends React.Component {
   constructor(props) {
@@ -12,17 +13,7 @@ class Newsfeed extends React.Component {
         
         <NavBarContainer />
 
-        <ul>
-          <li>
-            This is the newsfeed.
-          </li>
-          <li>
-            It contains newsfeed stuff.
-          </li>
-          <li>
-            <button onClick={this.props.logout}>logout</button>
-          </li>
-        </ul>
+        <NewsfeedPostIndexContainer />
       </section>
     );
   }

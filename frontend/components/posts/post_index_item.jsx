@@ -6,13 +6,13 @@ import CommentForm from './comment_form'
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
   }
 
   componentDidMount() {
-    const authorId = this.props.author.id;
-    const recipientId = this.props.recipient.id;
+    const authorId = this.props.post.author_id;
+    const recipientId = this.props.post.wall_id;
+
     this.props.fetchUser(authorId);
     if (authorId !== recipientId) {
       this.props.fetchUser(recipientId);
@@ -32,7 +32,8 @@ class PostIndexItem extends React.Component {
       currentUserId } = this.props;
     
     const profilePhoto = author.profile_url || this.defaultPhoto
-    
+    if (!author || !recipient) return null;
+
     const names = (author.id === recipient.id) ? (
       <div>
         <Link to={`/users/${author.id}`}>

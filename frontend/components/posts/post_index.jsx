@@ -14,7 +14,7 @@ class PostIndex extends React.Component {
   componentDidUpdate(prevProps) {
     const { indexType, userId } = this.props;
     if (userId !== prevProps.userId) {
-      this.props.requestPosts(indexType, userId);
+      this.props.fetchPosts(indexType, userId);
     }
   }
 
