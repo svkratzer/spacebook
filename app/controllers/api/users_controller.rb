@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :ensure_logged_in, only: [:show, :update]
+  # before_action :ensure_logged_in, only: [:show, :update]
 
   def create
     @user = User.create(user_params)
@@ -33,7 +33,9 @@ class Api::UsersController < ApplicationController
       :password,
       :birthday,
       :gender,
-      :bio
+      :bio,
+      :profile_url,
+      :cover_url
     )
   end
 end
