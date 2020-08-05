@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FriendsModal from './friends_modal';
 
-import { fetchFriends, destroyFriend } from '../../actions/friend_api_actions';
+import { fetchFriends } from '../../actions/friend_api_actions';
 
 const mSTP = (state, ownProps) => {
   const arr = ownProps.location.pathname
@@ -16,8 +16,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
-    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId)),
-    destroyFriend: (friendshipId) => dispatch(destroyFriend(friendshipId))
+    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId))
   };
 }
 
