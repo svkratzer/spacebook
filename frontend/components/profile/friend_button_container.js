@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FriendButton from './friend_button'
 import { withRouter } from 'react-router-dom';
-import { createFriend, destroyFriend } from '../../actions/friend_api_actions'
+import { createFriend, destroyFriend, fetchFriends } from '../../actions/friend_api_actions'
 
 const mSTP = (state, ownProps) => {
   const friends = Object.values(state.entities.friends)
@@ -26,7 +26,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     createFriend: (friendship, userId) => dispatch(createFriend(friendship, userId)),
-    destroyFriend: (friendshipId) => dispatch(destroyFriend(friendshipId))
+    destroyFriend: (friendshipId) => dispatch(destroyFriend(friendshipId)),
+    fetchFriends: (indexType, userId) => dispatch(fetchFriends(indexType, userId))
   }
 }
 

@@ -24,11 +24,11 @@ class FriendButton extends React.Component {
   }
 
   componentDidMount() {
-
+    
   }
 
   componentDidUpdate() {
-
+    this.props.fetchFriends('friends', this.props.userId);
   }
 
   render() {
