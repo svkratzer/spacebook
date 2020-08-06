@@ -74,17 +74,17 @@ class PostIndexItem extends React.Component {
         
         <div className="post-body">{post.body}</div>
         <div className="line"></div>
-        
-        <CommentForm createComment={this.props.createComment} 
-          currentUserId={this.props.currentUserId} 
-          postId={this.props.postId}/>
 
         <ul className="comments">
           {comments.map((comment) => (
             <li className="comment" key={comment.id}>
               <CommentIndexItemContainer postId={post.id} comment={comment}/>
             </li>
-          ))}
+          )).reverse()}
+          
+          <CommentForm createComment={this.props.createComment} 
+            currentUserId={this.props.currentUserId} 
+            postId={this.props.postId}/>
         </ul>
         
       </>
