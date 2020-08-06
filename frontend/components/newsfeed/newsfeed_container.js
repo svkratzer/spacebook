@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
+import { fetchUser } from '../../actions/user_api_actions';
 import Newsfeed from './newsfeed';
 
 const mSTP = (state) => {
@@ -10,7 +11,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    openModalPostForm: () => dispatch(openModal('postForm'))
+    openModalPostForm: () => dispatch(openModal('postForm')),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   };
 };
 

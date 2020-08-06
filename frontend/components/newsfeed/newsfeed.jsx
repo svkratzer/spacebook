@@ -9,7 +9,14 @@ class Newsfeed extends React.Component {
 
     this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
   }
+
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUser.id)
+  }
+
   render() {
+    if (!this.props.currentUser) return null;
+    const { currentUser } = this.props;
     const currentUserPhoto = this.props.currentUser.profile_url || this.defaultPhoto;
 
     return (
