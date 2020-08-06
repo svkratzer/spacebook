@@ -3,6 +3,7 @@ import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PostFormContainer from './posts/post_form_container';
 import FriendsModalContainer from './friends/friends_modal_container'
+import EditProfileModalContainer from './profile/edit_profile_modal_container';
 
 
 function Modal({ modal, closeModal }) {
@@ -13,6 +14,9 @@ function Modal({ modal, closeModal }) {
   switch (modal) {
     case 'postForm':
       component = <PostFormContainer />;
+      break;
+    case 'editProfileForm':
+      component = <EditProfileModalContainer />
       break;
     case 'friendsModal':
       component = <FriendsModalContainer />
