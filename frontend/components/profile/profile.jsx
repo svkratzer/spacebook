@@ -16,12 +16,27 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.userId);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.userId !== prevProps.userId) {
       this.props.fetchUser(this.props.userId);
     };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const stick = document.getElementsByClassName("left-container")[0];
+    const sticky = stick.offsetTop;
+    if (window.pageYOffset > 547) {
+      stick.classList.add("sticky");
+    } else if (window.pageYOffset <= 547) {
+      stick.classList.remove("sticky");
+    }
   }
 
   render() {
@@ -116,24 +131,3 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-
-// PROFILE PLAN
-
-// profile
-
-// profile_container
-// ---- mSTP {  }
-// ---- mDTP {  }
-
-// user_api_actions [DONE]
-// ---- RECEIVE_USER [DONE]
-// ---- receiveUser(user) [DONE] untested
-// ---- requestUser(userId) [DONE] untested
-// ---- updateUser(user) [DONE] untested
-// user_api_util [DONE]
-// ---- getUser(userId) [DONE] [untested]
-// ---- updateUser(user) [DONE] [untested]
-// users_controller [DONE]
-// ---- update [DONE]
-// routes [DONE]
-// ---- update [DONE]
