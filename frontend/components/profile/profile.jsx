@@ -84,7 +84,13 @@ class Profile extends React.Component {
 
           <div className="left-container">
             <div className="about-container">
-              <div>About</div>
+              <div className="about">About</div>
+              <div className="line"></div>
+              <div className="about-body">
+                Welcome to {user.first_name}'s profile page. From here, you can write on their wall to the right
+                or check their friend's list below. If you <span>are</span> {user.first_name}, then from here you can 
+                also edit your profile.
+              </div>
             </div>
             <div className="friends-container">
               <FriendsListContainer />
