@@ -7,8 +7,8 @@ class Splash extends React.Component {
     super(props);
 
     this.demoUserCredentials = {
-      email: "thecage@nick.com",
-      password: "password123"
+      email: "nicholascage",
+      password: "123456"
     }
   }
   
