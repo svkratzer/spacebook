@@ -31,10 +31,10 @@ class Profile extends React.Component {
 
   handleScroll() {
     const stick = document.getElementsByClassName("left-container")[0];
-    const sticky = stick.offsetTop;
-    if (window.pageYOffset > 547) {
+    // const sticky = stick.offsetTop;
+    if (window.pageYOffset > 528) {
       stick.classList.add("sticky");
-    } else if (window.pageYOffset <= 547) {
+    } else if (window.pageYOffset <= 528) {
       stick.classList.remove("sticky");
     }
   }
