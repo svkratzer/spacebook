@@ -9,7 +9,7 @@ class EditProfileModal extends React.Component {
     this.state = {
       id: this.currentUser.id,
       profile_url: (this.currentUser.profile_url || ""),
-      cover_url: (this.currentUser.profile_url || ""),
+      cover_url: (this.currentUser.cover_url || ""),
       first_name: this.currentUser.first_name,
       last_name: this.currentUser.last_name,
       bio: (this.currentUser.bio || "")
@@ -36,16 +36,21 @@ class EditProfileModal extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
           <div className="name-inputs">
-            <input type="text"
-              className="first-name"
-              value={this.state.first_name}
-              placeholder="First name"
-              onChange={this.update('first_name')} />
-            <input type="text"
-              className="last-name"
-              value={this.state.last_name}
-              placeholder="Last name"
-              onChange={this.update('last_name')} />
+            <label>First Name
+              <input type="text"
+                className="first-name"
+                value={this.state.first_name}
+                placeholder="First name"
+                onChange={this.update('first_name')} />
+            </label>
+
+            <label>Last Name
+              <input type="text"
+                className="last-name"
+                value={this.state.last_name}
+                placeholder="Last name"
+                onChange={this.update('last_name')} />
+            </label>
           </div>
 
           <div className="profile-photo">
