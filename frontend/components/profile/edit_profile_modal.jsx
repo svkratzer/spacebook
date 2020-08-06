@@ -15,7 +15,17 @@ class EditProfileModal extends React.Component {
       bio: (this.currentUser.bio || "")
     }
 
+    this.prevState = {
+      id: this.currentUser.id,
+      profile_url: (this.currentUser.profile_url || ""),
+      cover_url: (this.currentUser.cover_url || ""),
+      first_name: this.currentUser.first_name,
+      last_name: this.currentUser.last_name,
+      bio: (this.currentUser.bio || "")
+    }  
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.stateHasChanged = this.stateHasChanged.bind(this);
   }
 
   update(field) {
@@ -28,6 +38,21 @@ class EditProfileModal extends React.Component {
     e.preventDefault();
     this.props.updateUser(this.state);
     this.props.closeModal();
+  }
+
+  stateHasChanged(currState, prevState) {
+    if (currState.first_name !== prevState.first_name) 
+    { return false; } 
+    else if (currState.last_name !== prevState.last_name)
+    { return false; } 
+    else if (currState.profile_url !== prevState.profile_url)
+    { return false; } 
+    else if (currState.cover_url !== prevState.cover_url)
+    { return false; } 
+    else if (currState.bio !== prevState.bio)
+    { return false; } else {
+      return true;
+    }
   }
 
   render() {
@@ -82,7 +107,9 @@ class EditProfileModal extends React.Component {
             </textarea>
           </div>
 
-          <button className="submit-button" onSubmit={this.handleSubmit}>
+          <button className="submit-button" 
+            onSubmit={this.handleSubmit}
+            disabled={this.stateHasChanged(this.state, this.prevState)}>
             Make Changes
           </button>
 
