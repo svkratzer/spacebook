@@ -30,6 +30,7 @@ const mDTP = (dispatch) => {
   return {
     fetchUser: userId => dispatch(fetchUser(userId)),
     openModalPostForm: () => dispatch(openModal('postForm')),
+    openModalEditProfileForm: () => dispatch(openModal('editProfileForm')),
     createFriend: (friendship, userId) => dispatch(createFriend(friendship, userId)),
     destroyFriend: (friendshipId) => dispatch(destroyFriend(friendshipId))
   }

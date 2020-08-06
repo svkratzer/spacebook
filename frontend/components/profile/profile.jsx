@@ -62,6 +62,15 @@ class Profile extends React.Component {
           <div className="mini-nav">
             
             <div className="mini-nav-main">
+            
+            {isCurrentUser &&
+                <button className="edit-profile-button"
+                  onClick={this.props.openModalEditProfileForm}>
+                Edit Profile
+                &nbsp;
+                <i className="fas fa-user-edit"></i>
+              </button>
+            }
 
             { !isCurrentUser &&
               <FriendButtonContainer />
