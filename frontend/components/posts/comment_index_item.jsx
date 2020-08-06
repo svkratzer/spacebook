@@ -7,7 +7,9 @@ class CommentIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    fetchUser(this.props.author.id);
+    if (this.props.author) {
+      fetchUser(this.props.author.id);
+    }
   }
 
   render() {
