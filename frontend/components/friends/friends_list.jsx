@@ -47,9 +47,11 @@ class FriendsList extends React.Component {
         return (
           <div key={friend.friendship_id} className={`friend-item` }>
             <img src={photoUrl} />
-            <Link to={`/users/${friend.friend_id}`}>
-              {friend.first_name} {friend.last_name}
-            </Link>
+            <p>
+              <Link to={`/users/${friend.friend_id}`}>
+                {friend.first_name} {friend.last_name}
+              </Link>
+            </p>
           </div>
         );
       });

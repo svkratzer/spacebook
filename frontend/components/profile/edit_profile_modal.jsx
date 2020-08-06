@@ -33,28 +33,32 @@ class EditProfileModal extends React.Component {
   render() {
     return(
       <div className="edit-user">
+        <div className="header">Edit Profile</div>
+        <div className="line"></div>
         <form onSubmit={this.handleSubmit}>
 
           <div className="name-inputs">
-            <label>First Name
+            <div>
+              <div className="label">First Name</div>
               <input type="text"
                 className="first-name"
                 value={this.state.first_name}
                 placeholder="First name"
                 onChange={this.update('first_name')} />
-            </label>
+            </div>
 
-            <label>Last Name
+            <div>
+              <div className="label"> Last Name</div>
               <input type="text"
                 className="last-name"
                 value={this.state.last_name}
                 placeholder="Last name"
                 onChange={this.update('last_name')} />
-            </label>
+            </div>
           </div>
 
           <div className="profile-photo">
-            <div>Profile Photo</div>
+            <div className="label">Profile Photo</div>
             <input type="text"
               placeholder="Image url..."
               value={this.state.profile_url}
@@ -62,7 +66,7 @@ class EditProfileModal extends React.Component {
           </div>
 
           <div className="cover-photo">
-            <div>Cover Photo</div>
+            <div className="label">Cover Photo</div>
             <input type="text"
               placeholder="Image url..."
               value={this.state.cover_url}
@@ -70,7 +74,7 @@ class EditProfileModal extends React.Component {
           </div>
 
           <div className="bio">
-            <div>Bio</div>
+            <div className="label">Bio</div>
             <textarea value={this.state.bio}
               onChange={this.update('bio')}
               placeholder="Describe who you are"
@@ -78,7 +82,7 @@ class EditProfileModal extends React.Component {
             </textarea>
           </div>
 
-          <button onSubmit={this.handleSubmit}>
+          <button className="submit-button" onSubmit={this.handleSubmit}>
             Make Changes
           </button>
 
