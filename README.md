@@ -1,8 +1,6 @@
 # MyFace
 
-This README will eventually contain content and links to important stuff.   
+MyFace is a Facebook-inspired social media platofrm that allows users to interact with one another through user-generated textual content (i.e. posts and comments). To view the MyFace live page, please, click the following [link](https://svkratzer-myface.herokuapp.com/#/).
 
-Until then, it shall contain a single placeholder [link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) and image.
 
-<!-- ![rails meme](/app/assets/images/readme_images/rails_meme.jpg) -->
-![rails meme](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/rails_meme.jpg)
+![splash](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/splash.png)
