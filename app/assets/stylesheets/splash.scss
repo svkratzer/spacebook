@@ -262,6 +262,7 @@ margin-right: 15px;
 }
 
 .email, .password {
+  position: relative;
   width: 377px;
   margin-bottom: 10px;
 }
@@ -405,10 +406,17 @@ margin-right: 15px;
 }
 
 
+.password-input {
+  position: relative;
+}
+
+.email-input {
+  position: relative;
+}
 
 .email-e {
-  left: 355px;
-  bottom: 420px;
+  left: -225px;
+  bottom: 5px;
 }
 
 .name-e {
@@ -416,8 +424,8 @@ margin-right: 15px;
 }
 
 .password-e {
-  left: 355px;
-  bottom: 370px;
+  left: -225px;
+  bottom: 5px;
 }
 
 input.error-border {
