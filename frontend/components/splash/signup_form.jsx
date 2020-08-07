@@ -83,7 +83,9 @@ class SignupForm extends React.Component {
   }
 
   componentDidUpdate() {
-    this.handleErrors();
+    if (this.props.errors) {
+      this.handleErrors();
+    }
   }
 
   render() {

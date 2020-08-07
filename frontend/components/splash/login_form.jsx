@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.errors[0].includes("Oops!")) {
+    if (this.props.errors && this.props.errors[0].includes("Oops!")) {
       $('.login-error-message').removeClass('hidden');
     }
   }
