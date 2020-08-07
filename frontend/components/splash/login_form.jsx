@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
       email: '',
       password: ''
     }
-
+    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.errors.length) {
+    if (this.props.errors[0].includes("Oops!")) {
       $('.login-error-message').removeClass('hidden');
     }
   }

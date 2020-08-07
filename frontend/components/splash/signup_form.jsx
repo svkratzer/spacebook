@@ -20,7 +20,7 @@ class SignupForm extends React.Component {
     };
 
     this.birthdayArray = this.state.birthday.split('-');
-
+    this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -64,6 +64,28 @@ class SignupForm extends React.Component {
     }
   }
 
+  handleErrors() {
+    if (this.props.errors) {
+      this.props.errors.forEach((error) => {
+        if (error.includes('name')) {
+          $('.name-e').removeClass('hidden');
+          $('.first-name').addClass('error-border');
+          $('.last-name').addClass('error-border');
+        } else if (error.includes('Email')) {
+          $('.email-e').removeClass('hidden');
+          $('.email').addClass('error-border');
+        } else if (error.includes('Password')) {
+          $('.password-e').removeClass('hidden');
+          $('.password').addClass('error-border');
+        }
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    this.handleErrors();
+  }
+
   render() {
     return (
       <form className="signup-form"
@@ -80,6 +102,10 @@ class SignupForm extends React.Component {
             value={this.state.last_name}
             placeholder="Last name"
             onChange={this.update('last_name')}/>
+          
+          <div className="signup-error-message error hidden name-e">
+            <p>Please provide a first and last name.</p>
+          </div>
         </div>
         
         <div className="email-input">
@@ -88,6 +114,10 @@ class SignupForm extends React.Component {
             value={this.state.email}
             placeholder="Mobile number or email"
             onChange={this.update('email')}/>
+
+          <div className="signup-error-message error hidden email-e">
+            <p>Please, enter a valid email or phone number.</p>
+          </div>
         </div>
 
         <div className="password-input">
@@ -96,6 +126,10 @@ class SignupForm extends React.Component {
             value={this.state.password}
             placeholder="New password"
             onChange={this.update('password')}/>
+
+          <div className="signup-error-message error hidden password-e">
+            <p>Please, enter a password over six characters in length.</p>
+          </div>
         </div>
 
         <div className="birthday-inputs-container">
