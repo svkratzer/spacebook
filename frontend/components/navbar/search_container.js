@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_api_actions';
+import { fetchUsers, clearUsers } from '../../actions/user_api_actions';
 import Search from './search';
 
 const mSTP = (state) => {
+  let searchResults = state.entities.search;
   return {
-    currentUser: state.entities.users[state.session.id],
+    searchResults
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
-  };
+    searchUsers: name => dispatch(fetchUsers(name)),
+    clearSearchResults: () => dispatch(clearUsers()),
+  }
 };
 
 const SearchContainer = connect(mSTP, mDTP)(Search);
