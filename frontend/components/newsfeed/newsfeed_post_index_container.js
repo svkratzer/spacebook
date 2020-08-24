@@ -4,7 +4,7 @@ import PostIndex from '../posts/post_index';
 
 import { fetchPosts } from '../../actions/post_api_actions'
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   return {
     indexType: 'newsfeed',
     userId: state.session.id,
@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return {
-    fetchPosts: (indexType, userId) => dispatch(fetchPosts(indexType, userId))
+    fetchPosts: (indexType, userId, page) => dispatch(fetchPosts(indexType, userId, page))
   };
 };
 
