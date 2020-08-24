@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import SearchContainer from './search_container'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class NavBar extends React.Component {
             <Link className="logo" to="/newsfeed">
               <i className="fas fa-laugh"></i>
             </Link>
-            <input className="searchbar" type="text" placeholder="Search MyFace"/>
+            <SearchContainer />
           </div>
 
           <div className="nav-middle-buttons">
