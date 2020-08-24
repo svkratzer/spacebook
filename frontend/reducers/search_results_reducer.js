@@ -6,7 +6,7 @@ const _defaultResults = {};
 const searchResultsReducer = (state = _defaultResults, action) => {
   switch (action.type) {
     case RECEIVE_USERS:
-      return merge({}, state, action.users);
+      return action.users;
     case CLEAR_USERS:
       return {};
     default:
