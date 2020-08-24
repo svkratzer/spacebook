@@ -5,10 +5,16 @@ class Api::PostsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
 
     if params[:index_type] == "wall"
-      @posts = @user.wall_posts.order("posts.created_at DESC")
+      @posts = @user
+        .wall_posts
+        .order("posts.created_at DESC")
+        .page(1)
+        .per(5)
     elsif params[:index_type] == "newsfeed"
       ids = @user.friends
-      @posts = @user.posts + @user.friend_posts
+      @user_posts = @user.posts.page(params[:page]).per(5)
+      @friend_posts = @user.friend_posts.page(params[:page]).per(5)
+      @posts = @user_posts + @friend_posts
     end
     render :index
   end
@@ -19,7 +25,6 @@ class Api::PostsController < ApplicationController
   end
 
   def create 
-   
     @post = Post.new(post_params)
     if @post.save 
       render :show
