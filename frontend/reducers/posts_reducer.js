@@ -1,7 +1,8 @@
 import { merge } from 'lodash';
 import { LOGOUT_CURRENT_USER } from '../actions/session_api_actions';
 import { 
-  RECEIVE_POSTS, 
+  RECEIVE_NEWSFEED_POSTS, 
+  RECEIVE_WALL_POSTS, 
   RECEIVE_POST, 
   REMOVE_POST, 
   REMOVE_POSTS } from '../actions/post_api_actions';
@@ -9,7 +10,9 @@ import {
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
-    case RECEIVE_POSTS:
+    case RECEIVE_WALL_POSTS:
+      return merge({}, state, action.posts);
+    case RECEIVE_NEWSFEED_POSTS:
       return merge({}, state, action.posts);
     case RECEIVE_POST:
       return merge({}, state, { [action.post.id]: action.post });
