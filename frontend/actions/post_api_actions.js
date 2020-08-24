@@ -18,6 +18,7 @@ export const receiveNewsfeedPosts = (posts) => ({
   type: RECEIVE_NEWSFEED_POSTS,
   posts
 })
+
 export const receiveWallPosts = (posts) => ({
   type: RECEIVE_WALL_POSTS,
   posts
@@ -41,11 +42,11 @@ export const fetchPost = postId => dispatch =>
 export const fetchPosts = (indexType, userId, page) => dispatch => {
   switch(indexType) {
     case "newsfeed":
-      PostApiUtil.getPosts(indexType, userId, page)
-        .then(posts => dispatch(receiveNewsfeedPosts(posts)))
+      return PostApiUtil.getPosts(indexType, userId, page)
+        .then(posts => dispatch(receiveNewsfeedPosts(posts)));
     case "wall":
-      PostApiUtil.getPosts(indexType, userId, page)
-        .then(posts => dispatch(receiveWallPosts(posts)))
+      return PostApiUtil.getPosts(indexType, userId, page)
+        .then(posts => dispatch(receiveWallPosts(posts)));
   }
 }
 
