@@ -1,6 +1,14 @@
 // ---- getUser(userId)
 // ---- updateUser(user)
 
+export const getUsers = (name) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users`,
+    data: { name }
+  });
+}
+
 export const getUser = (userId) => {
   return $.ajax({
     method: 'GET',
