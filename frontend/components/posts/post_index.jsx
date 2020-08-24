@@ -4,11 +4,21 @@ import PostIndexItemContainer from './post_index_item_container';
 class PostIndex extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      page: 1
+    }
+  }
+
+  fetchPostsPaginated(indexType, userId, page) {
+    this.props.fetchPosts(indexType, userId, page);
+    this.setState({ page: (this.state.page + 1) });
   }
 
   componentDidMount() {
     const {indexType, userId} = this.props;
-    this.props.fetchPosts(indexType, userId);
+    const { page } = this.state;
+    this.props.fetchPosts(indexType, userId, page);
   }
 
   componentDidUpdate(prevProps) {
