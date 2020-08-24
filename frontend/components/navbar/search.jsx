@@ -6,15 +6,16 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      filter: { name: "" }
+      name: "",
+      typing: false
     }
   }
 
   render() {
-    <form>
+    <>
       <input type="text"
         className="searchbar"/>
-    </form>
+    </>
   }
 }
 
