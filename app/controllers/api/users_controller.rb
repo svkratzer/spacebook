@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
 
   def index 
     filter = "%#{params[:name]}%"
-    @users = User.select("*").where("UPPER(CONCAT(first_name, ' ', last_name)) LIKE UPPER(?)", filter)
+    @users = User.select("*").where("UPPER(CONCAT(first_name, ' ', last_name)) LIKE UPPER(?)", filter).limit(8)
   end
 
   def update
