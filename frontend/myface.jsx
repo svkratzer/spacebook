@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!event.target.matches('.clicker')) {
       const dropdown = document.getElementsByClassName("dropdown-content");
       $(dropdown[0]).addClass('hidden');
-
-      $('.dropdown-button').removeClass('clicked')
-      // $('.fa-caret-down').removeClass('clicked')
+      $('.dropdown-button').removeClass('clicked');
     }
   }
 

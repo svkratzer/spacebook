@@ -15,6 +15,9 @@ class Search extends React.Component {
     <>
       <input type="text"
         className="searchbar"/>
+      <ul className="">
+
+      </ul>
     </>
   }
 }
