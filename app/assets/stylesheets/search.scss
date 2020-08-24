@@ -1,0 +1,45 @@
+.navbar-search {
+  position: relative;
+}
+
+.searchbar {
+  position: relative
+}
+
+.search-results {
+  background-color: white;
+  top: 50px;
+  left: 40px;
+  padding: 5px;
+  position: absolute;
+  border-radius: 8px;
+  width: 200px;
+  z-index: 100;
+}
+
+.result a {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+  transition: 0.3s;
+  border-radius: 8px;
+  margin-top: 8px;
+  text-decoration: none;
+
+  div {
+    margin-left: 5px;
+    color: black;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: #E4E6ED;
+  }
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 30px;
+    width: 30px;
+  }
+}
