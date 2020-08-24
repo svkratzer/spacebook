@@ -14,7 +14,7 @@ const receiveUsers = users => ({
   users
 });
 
-const clearUsers = () => ({
+export const clearUsers = () => ({
   type: CLEAR_USERS
 });
 
