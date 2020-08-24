@@ -1,6 +1,7 @@
 import * as PostApiUtil from '../util/post_api_util'
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const RECEIVE_NEWSFEED_POSTS = 'RECEIVE_NEWSFEED_POSTS'
+export const RECEIVE_WALL_POSTS = 'RECEIVE_WALL_POSTS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 
 export const REMOVE_POST = 'REMOVE_POST'
@@ -13,8 +14,12 @@ export const receivePost = (post) => ({
   post
 })
 
-export const receivePosts = (posts) => ({
-  type: RECEIVE_POSTS,
+export const receiveNewsfeedPosts = (posts) => ({
+  type: RECEIVE_NEWSFEED_POSTS,
+  posts
+})
+export const receiveWallPosts = (posts) => ({
+  type: RECEIVE_WALL_POSTS,
   posts
 })
 
@@ -33,9 +38,16 @@ export const fetchPost = postId => dispatch =>
   PostApiUtil.getPost(postId)
     .then(post => dispatch(receivePost(post)))
 
-export const fetchPosts = (indexType, userId, page) => dispatch => 
-  PostApiUtil.getPosts(indexType, userId, page)
-    .then(posts => dispatch(receivePosts(posts)))
+export const fetchPosts = (indexType, userId, page) => dispatch => {
+  switch(indexType) {
+    case "newsfeed":
+      PostApiUtil.getPosts(indexType, userId, page)
+        .then(posts => dispatch(receiveNewsfeedPosts(posts)))
+    case "wall":
+      PostApiUtil.getPosts(indexType, userId, page)
+        .then(posts => dispatch(receiveWallPosts(posts)))
+  }
+}
 
 export const createPost = formPost => dispatch => 
   PostApiUtil.postPost(formPost)
