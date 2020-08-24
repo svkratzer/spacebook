@@ -6,6 +6,9 @@ import NewsfeedPostIndexContainer from './newsfeed_post_index_container'
 class Newsfeed extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      page: 1
+    }
 
     this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
   }

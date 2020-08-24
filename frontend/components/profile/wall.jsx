@@ -4,6 +4,10 @@ import WallContainer from '../posts/wall_container';
 class Wall extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      page: 1
+    }
   }
   
   render() {
