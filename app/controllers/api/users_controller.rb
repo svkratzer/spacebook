@@ -17,6 +17,11 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def index 
+    filter = "%#{params[:name]}%"
+    @users = User.select("*").where("UPPER(CONCAT(first_name, ' ', last_name)) LIKE UPPER(?)", filter)
+  end
+
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(user_params)
