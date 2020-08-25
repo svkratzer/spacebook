@@ -7,13 +7,23 @@ import {
   REMOVE_POST, 
   REMOVE_POSTS } from '../actions/post_api_actions';
 
-const postsReducer = (state = {}, action) => {
+  const _defaultState = {index: null}
+
+const postsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_WALL_POSTS:
-      return merge({}, state, action.posts);
+      if (state.index !== 'wall') {
+        return merge({ index: 'wall' }, action.posts);
+      } else {
+        return merge({}, state, action.posts);
+      }
     case RECEIVE_NEWSFEED_POSTS:
-      return merge({}, state, action.posts);
+      if (state.index !== 'newsfeed') {
+        return merge({ index: 'newsfeed' }, action.posts);
+      } else {
+        return merge({}, state, action.posts);
+      }
     case RECEIVE_POST:
       return merge({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:
