@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import PostIndex from './post_index';
+import { merge } from 'lodash'
 
 import {fetchPosts} from '../../actions/post_api_actions'
 
 const mSTP = (state, ownProps) => {
+  let posts = merge({}, state.entities.posts);
+  delete posts.index
   return {
     indexType: 'wall',
     userId: ownProps.match.params.userId,
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(posts)
   };
 };
 
