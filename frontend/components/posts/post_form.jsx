@@ -24,17 +24,6 @@ class PostForm extends React.Component {
     this.props.closeModal();
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append('post[body]', this.state.body);
-  //   formData.append('post[author_id]', this.state.author_id);
-  //   formData.append('post[wall_id]', this.state.wall_id);
-
-  //   this.props.createPost(formData);
-  // }
-
-
   render() {
     return(
       <form className="post-form"
@@ -49,7 +38,8 @@ class PostForm extends React.Component {
 
         <textarea placeholder="What's on your mind?"
           value={this.state.body}
-          onChange={this.update('body')}>
+          onChange={this.update('body')}
+          autoFocus>
 
         </textarea>
 
