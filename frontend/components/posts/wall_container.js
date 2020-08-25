@@ -17,7 +17,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return {
-    fetchPosts: (indexType, userId, page) => dispatch(fetchPosts(indexType, userId, page))
+    fetchPosts: (indexType, userId, page, wallId) => dispatch(fetchPosts(indexType, userId, page, wallId))
   };
 };
 
