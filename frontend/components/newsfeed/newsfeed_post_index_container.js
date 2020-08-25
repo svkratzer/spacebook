@@ -11,13 +11,14 @@ const mSTP = (state) => {
   return {
     indexType: 'newsfeed',
     userId: state.session.id,
-    posts: Object.values(posts)
+    posts: Object.values(posts),
+
   };
 };
 
 const mDTP = dispatch => {
   return {
-    fetchPosts: (indexType, userId, page) => dispatch(fetchPosts(indexType, userId, page))
+    fetchPosts: (indexType, userId, page, wallId) => dispatch(fetchPosts(indexType, userId, page, wallId))
   };
 };
 

@@ -23,7 +23,7 @@ class PostIndex extends React.Component {
   componentDidMount() {
     const { indexType, userId } = this.props;
     const currPage = this.state.page;
-    this.props.fetchPosts(indexType, userId, currPage);
+    this.props.fetchPosts(indexType, userId, currPage, this.props.userId);
   }
 
   render() {
