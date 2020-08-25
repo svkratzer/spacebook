@@ -58,7 +58,7 @@ class Search extends React.Component {
         return (
           <li key={result.id} className="result">
             <Link to={`/users/${result.id}`}>
-              <img src={result.profile_url ? results.profile_url : this.defaultPhoto}/>
+              <img src={result.profile_url ? result.profile_url : this.defaultPhoto}/>
               <div>{result.first_name}&nbsp;{result.last_name}</div>
             </Link>
           </li>
