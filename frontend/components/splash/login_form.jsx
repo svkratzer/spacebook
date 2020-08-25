@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
 
   update(field) {
     return (e) => {
+      e.preventDefault();
       this.setState({ [field]: e.currentTarget.value });
       $(`.login-error-message`).addClass('hidden');
     }
@@ -23,24 +24,26 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state);
-  }
-
-  handleFocus() {
-    e.preventDefault();
-    $(`.login-error-message`).addClass('hidden');
-  }
-
-  handleBlur() {
-    e.preventDefault();
-    $(`.login-error-message`).addClass('hidden');
-  }
-
-  componentDidUpdate() {
-    if (this.props.errors && this.props.errors[0].includes("Oops!")) {
+    this.props.login(this.state).then(null, () => {
       $('.login-error-message').removeClass('hidden');
-    }
+    });
   }
+
+  handleFocus(e) {
+    e.preventDefault();
+    $(`.login-error-message`).addClass('hidden');
+  }
+
+  handleBlur(e) {
+    e.preventDefault();
+    $(`.login-error-message`).addClass('hidden');
+  }
+
+  // componentDidUpdate() {
+  //   if (this.props.errors.length && this.props.errors[0].includes("Oops!")) {
+  //     $('.login-error-message').removeClass('hidden');
+  //   }
+  // }
 
   render() {
     
