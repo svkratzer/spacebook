@@ -111,5 +111,6 @@ new_user_ids.each_with_index do |id, index|
       friend_a_id: id,
       friend_b_id: new_user_ids[(index + count) % NUM_USERS]
     )
+    count += 1
   end
 end
