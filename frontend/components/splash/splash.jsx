@@ -7,8 +7,12 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
 
-    this.demoUserCredentials = {
-      email: "nicholascage",
+    this._demoUser = {
+      first_name: faker.name.firstName(),
+      last_name: faker.name.lastName(),
+      cover_url: "",
+      profile_url: "",
+      email: `${(Math.random() * 10000000000000000)}${faker.internet.email()}`,
       password: "123456"
     }
   }
