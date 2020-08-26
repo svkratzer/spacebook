@@ -8,9 +8,9 @@ class DemoLoginButton extends React.Component {
     this._demoUser = {
       first_name: "Nick",
       last_name: "Cage",
-      cover_url: "",
-      profile_url: "",
-      bio: "This site might contain a lot of Nick Cages. It's not a bug--it's a feature.",
+      cover_url: "https://github.com/svkratzer/MyFace/blob/master/app/assets/images/demo_cover.jpg?raw=true",
+      profile_url: "https://github.com/svkratzer/MyFace/blob/master/app/assets/images/demo_profile.jpg?raw=true",
+      bio: "This site *might* contain a lot of Nick Cages. It's not a bug--it's a feature.",
       email: `${(Math.random() * 10000000000000000)}${faker.internet.email()}`,
       birthday: "1964-8-25",
       password: "123456"
