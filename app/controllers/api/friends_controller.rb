@@ -6,7 +6,7 @@ class Api::FriendsController < ApplicationController
     if params[:index_type] == "friends"
       @friendships = user.friendships
     elsif params[:index_type] === "suggested_friends"
-      @friendships = user.friendships.limit(10)
+      @friendships = User.where("users.id != ?", params[:user_id]).limit(10)
     else
       @friendships = []
     end
