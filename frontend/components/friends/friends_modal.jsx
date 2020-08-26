@@ -8,10 +8,6 @@ class FriendsModal extends React.Component {
     this.defaultPhoto = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   }
 
-  componentDidMount() {
-    this.props.fetchFriends('friends', this.props.userId);
-  }
-
   gridify(friends) {
       const {currentUserId, userId} = this.props;
       return friends.map( (friend) => {
