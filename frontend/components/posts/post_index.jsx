@@ -26,6 +26,14 @@ class PostIndex extends React.Component {
     this.props.fetchPosts(indexType, userId, currPage, this.props.userId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId) {
+      const { indexType, userId } = this.props;
+      const currPage = this.state.page;
+      this.props.fetchPosts(indexType, userId, currPage, this.props.userId);
+    }
+  }
+
   render() {
     const { posts } = this.props;
     return (
