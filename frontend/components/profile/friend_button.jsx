@@ -4,18 +4,19 @@ class FriendButton extends React.Component {
   constructor(props) {
     super(props)
 
-    this.friendship = {
-      friend_a_id: this.props.currentUserId,
-      friend_b_id: this.props.userId
-    }
-
     this.handleFriend = this.handleFriend.bind(this);
     this.handleUnfriend = this.handleUnfriend.bind(this);
   }
 
   handleFriend(e) {
     e.preventDefault();
-    this.props.createFriend(this.friendship, this.props.currentUserId)
+
+    const friendship = {
+      friend_a_id: this.props.currentUserId,
+      friend_b_id: this.props.userId
+    }
+
+    this.props.createFriend(friendship, this.props.currentUserId)
   } 
 
   handleUnfriend(e) {
