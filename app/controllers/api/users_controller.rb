@@ -4,7 +4,18 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+
     if @user.save
+      # CREATE FRIENDS FOR THE DEMO USER
+      ongo = User.find_by(last_name: "Gablogian")
+      Friend.new(friend_a_id: @user.id, friend_b_id: ongo.id)
+      computer = User.find_by(last_name: "Computer")
+      Friend.new(friend_a_id: @user.id, friend_b_id: computer.id)
+      meeseeks = User.find_by(last_name: "Meeseeks")
+      Friend.new(friend_a_id: @user.id, friend_b_id: meeseeks.id)
+      shia = User.find_by(first_name: "LaBoeuf")
+      Friend.new(friend_a_id: @user.id, friend_b_id: shia.id)
+      # LOGIN NEW USER
       login!(@user)
       render :show
     else
