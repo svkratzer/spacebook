@@ -88,7 +88,7 @@ class Profile extends React.Component {
             }
 
             { !isCurrentUser &&
-              <FriendButtonContainer />
+              <FriendButtonContainer userId={this.props.userId}/>
             }
             </div>
 
