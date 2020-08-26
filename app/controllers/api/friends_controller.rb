@@ -5,8 +5,8 @@ class Api::FriendsController < ApplicationController
     user = User.find_by(id: params[:user_id])
     if params[:index_type] == "friends"
       @friendships = user.friendships
-    # elsif params[:index_type] === "suggested_friends"
-    #   @friendships = 7
+    elsif params[:index_type] === "suggested_friends"
+      @friendships = user.friendships.limit(10)
     else
       @friendships = []
     end
@@ -41,6 +41,10 @@ class Api::FriendsController < ApplicationController
   end
 
   private
+  def find_suggested_friends(user)
+    current_friends =  user.friendships
+  end
+
   def friend_params
     params.require(:friend).permit(:friend_a_id, :friend_b_id)
   end 
