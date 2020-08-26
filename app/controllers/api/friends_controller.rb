@@ -15,19 +15,17 @@ class Api::FriendsController < ApplicationController
 
   def create
     @friendship1 = Friend.new(friend_params)
-  
     ida = @friendship1.friend_a_id
     idb = @friendship1.friend_b_id
     new_friend_params = {friend_a_id: idb, friend_b_id: ida}
-
     @friendship2 = Friend.new(new_friend_params);
-   
+  
     if @friendship1.save && @friendship2.save
       @friend = User.find_by(id: @friendship1.friend_a_id)
-      
       render :show
     else
-      render json: @friendship.errors.full_messages, status: 422
+      # render json: @friendship1.errors.full_messages, status: 422
+      render json: @friendship2.errors.full_messages, status: 422
     end
   end
 
