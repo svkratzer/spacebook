@@ -57,7 +57,61 @@ cover_urls = [
   "https://rooteto.files.wordpress.com/2012/04/1-nature-facebook-covers.jpg"
 ]
 
+custom_friends_ids = []
 new_user_ids = []
+
+# Creates Demo User "Custom Friends"
+## Creates an Ongo Gablogian
+ongo = User.create(
+    first_name: "Ongo",
+    last_name: "Gablogian",
+    email: rand.to_s,
+    password: "123456",
+    birthday: "1996-12-02",
+    profile_url: "https://cdn.costumewall.com/wp-content/uploads/2018/09/ongo-gablogian.jpg",
+    cover_url: "https://learnodo-newtonic.com/wp-content/uploads/2017/05/Famous-Surrealist-Paintings-Featured.jpg",
+    bio: "Derivative."
+  )
+custom_friends_ids << ongo
+
+## Creates a Shia LaBoeuf
+shia = User.create(
+    first_name: "Shia",
+    last_name: "LaBoeuf",
+    email: rand.to_s,
+    password: "123456",
+    birthday: "1996-12-02",
+    profile_url: "https://i.insider.com/5dc1b7ed79d7570dee617702?width=1100&format=jpeg&auto=webp",
+    cover_url: "https://9cover.com/images/ccovers/1363127659transformers-celebrity-shia-labeouf.jpg",
+    bio: "JUST DO IT"
+  )
+custom_friends_ids << shia
+
+## Creates A Computer
+computer = User.create(
+    first_name: "A",
+    last_name: "Computer",
+    email: rand.to_s,
+    password: "123456",
+    birthday: "1996-12-02",
+    profile_url: "https://chapelierfou.org/blog/images/minitel1.jpg",
+    cover_url: "https://scx2.b-cdn.net/gfx/news/hires/2019/4-space.jpg",
+    bio: "0110100001100101011011000110110001101111"
+  )
+custom_friends_ids << computer
+
+## Creates A Mr. Meeseeks, LOOK AT ME!!!
+meeseeks = User.create(
+    first_name: "Mr.",
+    last_name: "Meeseeks",
+    email: rand.to_s,
+    password: "123456",
+    birthday: "1996-12-02",
+    profile_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQ5kswUkATr9wfdtS1kqWRRTVO-W2QreobGw&usqp=CAU",
+    cover_url: "https://vignette.wikia.nocookie.net/rickandmorty/images/f/fb/Meeseeks_and_Destroy_13.png/revision/latest?cb=20160913050626",
+    bio: "Existence is pain!"
+  )
+custom_friends_ids << meeseeks
 
 # Create new users and add their IDs to the new_user_ids array
 NUM_USERS.times do 
@@ -114,3 +168,45 @@ new_user_ids.each_with_index do |id, index|
     count += 1
   end
 end
+
+custom_friends_ids.each do |id|
+  count = 1
+  NUM_FRIENDS_PER_USER.times do 
+    Friend.create(
+      friend_a_id: id,
+      friend_b_id: new_user_ids[(index + count) % NUM_USERS]
+    )
+    count += 1
+  end
+end
+
+Post.create(
+  author_id: ongo.id,
+  wall_id: ongo.id,
+  body: "Welcome to MyFace! This is the newsfeed. From here you can view your posts as well as your friends' posts! On the right is a suggested friends list that you can click to view some possible friends' profiles, and on the left is are some useful links from the site's creator."
+)
+Post.create(
+  author_id: meeseeks.id,
+  wall_id: meeseeks.id,
+  body: "And you can make posts from here too! try it out!!!!!"
+)
+Post.create(
+  author_id: shia.id,
+  wall_id: meeseeks.id,
+  body: "Yeah Mr. Meeseeks, and don't forget that this page has infinite scroll too to, so as you scroll down, you can view your friends' posts without crazy load times!"
+)
+Post.create(
+  author_id: ongo.id,
+  wall_id: ongo.id,
+  body: "Also, if you want to quickly navigate to a specific users profile, try using the searchbar on the nav."
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "01011001 01100101 01100001 01101000 00100000 01110100 01101000 01101001 01110011 00100000 01110011 01101001 01110100 01100101 00100000 01101001 01110011 00100000 01110011 01110101 01110000 01100101 01110010 00100000 01110011 01101001 01100011 01101011 00101110 00100000 01000100 01101111 01101110 00100111 01110100 00100000 01100110 01101111 01110010 01100111 01100101 01110100 00100000 01110100 01101111 00100000 01101101 01100101 01101110 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100001 01110100 00100000 01110100 01101000 01100101 00100000 01110011 01100101 01100001 01110010 01100011 01101000 00100000 01110101 01110011 01100101 01110011 00100000 01100100 01100101 01100010 01101111 01110101 01101110 01100011 01101001 01101110 01100111 00100000 01110100 01101111 00100000 01101100 01101001 01101101 01101001 01110100 00100000 01110101 01101110 01101110 01100101 01100011 01100101 01110011 01110011 01100001 01110010 01111001 00100000 01000001 01010000 01001001 00100000 01100011 01100001 01101100 01101100 01110011 00101110 00100000"
+)
+Post.create(
+  author_id: ongo.id,
+  wall_id: computer.id,
+  body: "Haha, very true. Thanks for remembering!"
+)
