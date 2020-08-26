@@ -11,8 +11,8 @@ class Api::PostsController < ApplicationController
         .page(params[:page]).per(5)
     elsif params[:index_type] == "newsfeed"
       ids = @user.friends
-      @user_posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(5)
-      @friend_posts = @user.friend_posts.order("posts.created_at DESC").page(params[:page]).per(5)
+      @user_posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(2)
+      @friend_posts = @user.friend_posts.order("posts.created_at DESC").page(params[:page]).per(2)
       @posts = (@user_posts + @friend_posts)
     end
     render :index

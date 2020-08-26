@@ -8,7 +8,7 @@
 
 require "faker"
 
-NUM_USERS = 50
+NUM_USERS = 21
 NUM_POSTS_PER_USER = 10
 NUM_FRIENDS_PER_USER = 20
 
