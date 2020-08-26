@@ -13,7 +13,6 @@ const postsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_WALL_POSTS:
-      debugger;
       if (state.index !== 'wall' || state.wallId !== action.wallId) {
         return merge({ index: 'wall' }, action.posts);
       } else {
