@@ -1,20 +1,11 @@
 import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
-import faker from 'faker';
+import DemoLoginButton from './demo_button';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-
-    this._demoUser = {
-      first_name: faker.name.firstName(),
-      last_name: faker.name.lastName(),
-      cover_url: "",
-      profile_url: "",
-      email: `${(Math.random() * 10000000000000000)}${faker.internet.email()}`,
-      password: "123456"
-    }
   }
   
   render() {
@@ -54,10 +45,11 @@ class Splash extends React.Component {
                 <h3>It's quick and easy.</h3>
                 <SignupFormContainer />
                 <hr/>
-                <button onClick={() => this.props.login(this.demoUserCredentials)}
+                {/* <button onClick={() => this.props.login(this.demoUserCredentials)}
                   className="demo-login-button">
                   Demo Login
-                </button>
+                </button> */}
+                <DemoLoginButton signup={this.props.signup}/>
                 <div className="signup-form-terms">
                   Click the <span>Demo Login</span> button to be automatically logged into the demo account.
                 </div>

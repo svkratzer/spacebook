@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_api_actions';
+import { login, signup } from '../../actions/session_api_actions';
 import Splash from './splash'
 
 const mDTP = dispatch => {
   return {
-    login: user => dispatch(login(user))
+    login: user => dispatch(login(user)),
+    signup: user => dispatch(signup(user))
   };
 };
 
