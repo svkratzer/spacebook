@@ -24,6 +24,7 @@ class PostIndex extends React.Component {
     const { indexType, userId } = this.props;
     const currPage = this.state.page;
     this.props.fetchPosts(indexType, userId, currPage, this.props.userId);
+    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps) {
@@ -38,6 +39,9 @@ class PostIndex extends React.Component {
     const { posts } = this.props;
     return (
       <>
+        {
+
+        }
         <ul className="wall-post-list">
           {posts.map((post) => (
             <li className="post-item" key={post.id}>
