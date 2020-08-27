@@ -50,6 +50,7 @@ class Api::UsersController < ApplicationController
   private
   def create_friends(i, j)
     Friend.create(friend_a_id: i, friend_b_id: j)
+    Friend.create(friend_a_id: j, friend_b_id: i)
   end
 
   def user_params
