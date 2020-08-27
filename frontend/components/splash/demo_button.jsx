@@ -19,10 +19,7 @@ class DemoLoginButton extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this._demoUser).then((action) => {
-      const nickCage = action.currentUser
-      
-    });
+    this.props.signup(this._demoUser)
   }
 
 
