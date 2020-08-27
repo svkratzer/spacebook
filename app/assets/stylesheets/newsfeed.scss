@@ -74,7 +74,7 @@
 .sidebar {
   position: sticky;
   top: 80px;
-  width: 360px;
+  width: 300px;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@
   .info {
     font-family: Geneva, Verdana, sans-serif;
     font-size: 17px;
-    width: 330px;
+    width: 300px;
     margin-left: 30px;
     padding: 10px 0px 10px 0;
   }
@@ -120,13 +120,40 @@
 .suggested-friends {
   display: flex;
   flex-direction: column;
+  margin-right: 40px;
 
   h2 {
-    width: 100%;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: rgb(55, 55, 55);
-    padding-left: 70px;
+    padding-left: 15px;
+    margin: 0;
+  }
+
+  .line {
+    margin: 10px 0 10px 0;
+    width: 270px;
+    border-top: 1px solid lightgray;
+  }
+
+
+  .suggested-friend {
+    a {
+      margin: 0;
+    }
+
+    div {
+      font-size: 16px;
+      font-weight: normal;
+      font-family: sans-serif;
+    }
+
+    img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
   }
 }
