@@ -6,7 +6,7 @@ class Api::FriendsController < ApplicationController
     if params[:index_type] == "friends"
       @friendships = user.friendships
     elsif params[:index_type] === "suggested_friends"
-      @friendships = user.friendships
+      @friendships = find_suggested_friends(user)
     else
       @friendships = []
     end
@@ -39,7 +39,14 @@ class Api::FriendsController < ApplicationController
 
   private
   def find_suggested_friends(user)
-    current_friends =  user.friendships
+    friend_ids = user.friendships.pluck(:friend_b_id)
+    mutual_friends = []
+
+    friend_ids.each do |friend_a_id|
+      mutual_friends << Friend.where("friend_a_id = ?", friend_a_id)
+        .where.not("friend_b_id IN (?)", friend_ids)
+    end
+    mutual_friends.flatten.uniq.first(9)
   end
 
   def friend_params
