@@ -8,7 +8,7 @@ class Api::PostsController < ApplicationController
       @posts = @user
         .wall_posts
         .order("posts.created_at DESC")
-        .page(params[:page]).per(5)
+        .page(params[:page]).per(3)
     elsif params[:index_type] == "newsfeed"
       ids = @user.friends
       @user_posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(2)
