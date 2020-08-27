@@ -8,9 +8,20 @@
 
 require "faker"
 
+def createFriends(friend_a_id, friend_b_id)
+    Friend.create(
+      friend_a_id: friend_a_id,
+      friend_b_id: friend_b_id
+    )
+    Friend.create(
+      friend_a_id: friend_b_id,
+      friend_b_id: friend_a_id
+    )
+end
+
 NUM_USERS = 21
 NUM_POSTS_PER_USER = 10
-NUM_FRIENDS_PER_USER = 20
+NUM_FRIENDS_PER_USER = 10
 
 
 User.destroy_all
@@ -85,7 +96,7 @@ shia = User.create(
     cover_url: "https://9cover.com/images/ccovers/1363127659transformers-celebrity-shia-labeouf.jpg",
     bio: "JUST DO IT"
   )
-custom_friends_ids << shia
+custom_friends_ids << shia.id
 
 ## Creates A Computer
 computer = User.create(
@@ -98,7 +109,7 @@ computer = User.create(
     cover_url: "https://scx2.b-cdn.net/gfx/news/hires/2019/4-space.jpg",
     bio: "0110100001100101011011000110110001101111"
   )
-custom_friends_ids << computer
+custom_friends_ids << computer.id
 
 ## Creates A Mr. Meeseeks, LOOK AT ME!!!
 meeseeks = User.create(
@@ -111,7 +122,7 @@ meeseeks = User.create(
     cover_url: "https://vignette.wikia.nocookie.net/rickandmorty/images/f/fb/Meeseeks_and_Destroy_13.png/revision/latest?cb=20160913050626",
     bio: "Existence is pain!"
   )
-custom_friends_ids << meeseeks
+custom_friends_ids << meeseeks.id
 
 # Create new users and add their IDs to the new_user_ids array
 NUM_USERS.times do 
@@ -161,21 +172,19 @@ end
 new_user_ids.each_with_index do |id, index|
   count = 1
   NUM_FRIENDS_PER_USER.times do 
-    Friend.create(
-      friend_a_id: id,
-      friend_b_id: new_user_ids[(index + count) % NUM_USERS]
-    )
-    count += 1
+    friend_b_id = new_user_ids[(index + count) % NUM_USERS]
+    if !Friend.where(friend_a_id: id).find_by(friend_b_id: friend_b_id)
+      createFriends(id, friend_b_id)
+    end
+    count += 2
   end
 end
 
-custom_friends_ids.each do |id|
+custom_friends_ids.each_with_index do |id, index|
   count = 1
   NUM_FRIENDS_PER_USER.times do 
-    Friend.create(
-      friend_a_id: id,
-      friend_b_id: new_user_ids[(index + count) % NUM_USERS]
-    )
+    friend_b_id = new_user_ids[(index + count) % NUM_USERS]
+    createFriends(id, friend_b_id)
     count += 1
   end
 end
