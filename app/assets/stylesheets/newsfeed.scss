@@ -118,5 +118,15 @@
 }
 
 .suggested-friends {
-  
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    width: 100%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(55, 55, 55);
+    padding-left: 70px;
+  }
 }
