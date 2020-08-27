@@ -12,7 +12,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     openModalPostForm: () => dispatch(openModal('postForm')),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchSuggestedFriends: (userId) => dispatch(fetchFriends('suggested_friends', userId))
   };
 };
 
