@@ -58,7 +58,7 @@ class Newsfeed extends React.Component {
           </div>
 
           <div className="suggested-friends sidebar">
-
+            <h2>Suggested Friends</h2>
           </div>
         </section>
       </>
