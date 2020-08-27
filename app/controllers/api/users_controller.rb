@@ -4,21 +4,32 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-
+    
     if @user.save
-      # CREATE FRIENDS FOR THE DEMO USER
-      ongo = User.find_by(last_name: "Gablogian")
-      Friend.new(friend_a_id: @user.id, friend_b_id: ongo.id)
-      computer = User.find_by(last_name: "Computer")
-      Friend.new(friend_a_id: @user.id, friend_b_id: computer.id)
-      meeseeks = User.find_by(last_name: "Meeseeks")
-      Friend.new(friend_a_id: @user.id, friend_b_id: meeseeks.id)
-      shia = User.find_by(first_name: "LaBoeuf")
-      Friend.new(friend_a_id: @user.id, friend_b_id: shia.id)
+      
       # LOGIN NEW USER
       login!(@user)
+
+      if @user.first_name == "Nick" && @user.last_name == "Cage"
+        # CREATE FRIENDS FOR THE DEMO USER
+        ongo = User.find_by(last_name: "Gablogian")
+        
+        Friend.create(friend_a_id: @user.id, friend_b_id: ongo.id)
+        computer = User.find_by(last_name: "Computer")
+        
+        Friend.create(friend_a_id: @user.id, friend_b_id: computer.id)
+        meeseeks = User.find_by(last_name: "Meeseeks")
+        
+        Friend.create(friend_a_id: @user.id, friend_b_id: meeseeks.id)
+        shia = User.find_by(last_name: "LaBoeuf")
+        
+        Friend.create(friend_a_id: @user.id, friend_b_id: shia.id)
+        
+      end
+
       render :show
     else
+      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end
@@ -41,6 +52,10 @@ class Api::UsersController < ApplicationController
   end
 
   private
+  def create_friends(i, j)
+    Friend.create(friend_a_id: i, friend_b_id: j)
+  end
+
   def user_params
     params.require(:user).permit(
       :first_name,
