@@ -217,5 +217,5 @@ Post.create(
 Post.create(
   author_id: ongo.id,
   wall_id: ongo.id,
-  body: "Welcome to MyFace! This is the newsfeed. From here you can view your posts as well as your friends' posts! On the right is a suggested friends list that you can click to view some possible friends' profiles, and on the left is are some useful links from the site's creator."
+  body: "Welcome to MyFace! This is the newsfeed. From here you can view your posts as well as your friends' posts! On the right is a suggested friends list that you can click to view some possible friends' profiles, and on the left are some useful links from the site's creator."
 )
