@@ -12,6 +12,7 @@ class Newsfeed extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.currentUser.id)
+    this.props.fetchSuggestedFriends(this.props.currentUser.id)
   }
 
   render() {
