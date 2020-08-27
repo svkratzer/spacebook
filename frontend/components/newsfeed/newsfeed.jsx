@@ -20,6 +20,17 @@ class Newsfeed extends React.Component {
     const { currentUser } = this.props;
     const currentUserPhoto = this.props.currentUser.profile_url || this.defaultPhoto;
 
+      const suggestedFriends = this.props.suggestedFriends.map(friend => {
+        return (
+          <li key={friend.friend_id} className="suggested-friend">
+            <Link to={`/users/${friend.friend_id}`}>
+              <img src={friend.profile_url ? friend.profile_url : this.defaultPhoto} />
+              <div>{friend.first_name}&nbsp;{friend.last_name}</div>
+            </Link>
+          </li>
+        );
+      });
+    
     return (
       <>
         <NavBarContainer />
@@ -60,6 +71,10 @@ class Newsfeed extends React.Component {
 
           <div className="suggested-friends sidebar">
             <h2>Suggested Friends</h2>
+            <div className="line"></div>
+            <ul>
+              {suggestedFriends}
+            </ul>
           </div>
         </section>
       </>
