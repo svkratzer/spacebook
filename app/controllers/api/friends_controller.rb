@@ -24,7 +24,6 @@ class Api::FriendsController < ApplicationController
       @friend = User.find_by(id: @friendship1.friend_a_id)
       render :show
     else
-      # render json: @friendship1.errors.full_messages, status: 422
       render json: @friendship2.errors.full_messages, status: 422
     end
   end
