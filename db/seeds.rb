@@ -8,6 +8,8 @@
 
 require "faker"
 
+
+# A method that reciprocally creates friends (logic that is usually handled in the FriendsController)
 def createFriends(friend_a_id, friend_b_id)
     Friend.create(
       friend_a_id: friend_a_id,
@@ -19,16 +21,18 @@ def createFriends(friend_a_id, friend_b_id)
     )
 end
 
+# Constants for manipulating seed size
 NUM_USERS = 21
 NUM_POSTS_PER_USER = 10
 NUM_FRIENDS_PER_USER = 10
 
-
+# Clear the database of old seeds
 User.destroy_all
 Friend.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
+# Sample profile pictures for seeded users 
 profile_urls = [
   "https://miro.medium.com/max/585/1*a-HXhG_PoTygNXqwp9KHMA.jpeg",
   "https://i.kym-cdn.com/photos/images/newsfeed/001/445/963/523.jpg",
@@ -56,6 +60,7 @@ profile_urls = [
   "https://pmcdeadline2.files.wordpress.com/2016/03/ali-g.jpg?w=759"
 ]
 
+# sample cover photos for seeded users
 cover_urls = [
   "https://i.pinimg.com/originals/91/98/eb/9198ebf13c4b2dd52d2306dd4a9bc3b4.jpg",
   "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/nature-design.jpg",
@@ -68,7 +73,10 @@ cover_urls = [
   "https://rooteto.files.wordpress.com/2012/04/1-nature-facebook-covers.jpg"
 ]
 
+# Holds id's of the Demo User's initial friends
 custom_friends_ids = []
+
+# Holds id's of randomly seeded users
 new_user_ids = []
 
 # Creates Demo User "Custom Friends"
@@ -83,7 +91,7 @@ ongo = User.create(
     cover_url: "https://learnodo-newtonic.com/wp-content/uploads/2017/05/Famous-Surrealist-Paintings-Featured.jpg",
     bio: "Derivative."
   )
-custom_friends_ids << ongo
+custom_friends_ids << ongo.id
 
 ## Creates a Shia LaBoeuf
 shia = User.create(
@@ -180,6 +188,7 @@ new_user_ids.each_with_index do |id, index|
   end
 end
 
+# Give the custom friends of the demo user a few friends to demonstrate the suggested friends algo
 custom_friends_ids.each_with_index do |id, index|
   count = 1
   NUM_FRIENDS_PER_USER.times do 
@@ -189,6 +198,56 @@ custom_friends_ids.each_with_index do |id, index|
   end
 end
 
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "These 42's are really just for demonstrating infinite scroll."
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
+Post.create(
+  author_id: computer.id,
+  wall_id: ongo.id,
+  body: "42"
+)
 Post.create(
   author_id: ongo.id,
   wall_id: computer.id,
