@@ -13,17 +13,13 @@ class Api::UsersController < ApplicationController
       if @user.first_name == "Nick" && @user.last_name == "Cage"
         # CREATE FRIENDS FOR THE DEMO USER
         ongo = User.find_by(last_name: "Gablogian")
-        
-        Friend.create(friend_a_id: @user.id, friend_b_id: ongo.id)
+        create_friends(@user.id, ongo.id)
         computer = User.find_by(last_name: "Computer")
-        
-        Friend.create(friend_a_id: @user.id, friend_b_id: computer.id)
+        create_friends(@user.id, computer.id)
         meeseeks = User.find_by(last_name: "Meeseeks")
-        
-        Friend.create(friend_a_id: @user.id, friend_b_id: meeseeks.id)
+        create_friends(@user.id, meeseeks.id)
         shia = User.find_by(last_name: "LaBoeuf")
-        
-        Friend.create(friend_a_id: @user.id, friend_b_id: shia.id)
+        create_friends(@user.id, shia.id)
         
       end
 
