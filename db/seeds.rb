@@ -191,23 +191,8 @@ end
 
 Post.create(
   author_id: ongo.id,
-  wall_id: ongo.id,
-  body: "Welcome to MyFace! This is the newsfeed. From here you can view your posts as well as your friends' posts! On the right is a suggested friends list that you can click to view some possible friends' profiles, and on the left is are some useful links from the site's creator."
-)
-Post.create(
-  author_id: meeseeks.id,
-  wall_id: meeseeks.id,
-  body: "And you can make posts from here too! try it out!!!!!"
-)
-Post.create(
-  author_id: shia.id,
-  wall_id: meeseeks.id,
-  body: "Yeah Mr. Meeseeks, and don't forget that this page has infinite scroll too to, so as you scroll down, you can view your friends' posts without crazy load times!"
-)
-Post.create(
-  author_id: ongo.id,
-  wall_id: ongo.id,
-  body: "Also, if you want to quickly navigate to a specific users profile, try using the searchbar on the nav."
+  wall_id: computer.id,
+  body: "Haha, very true. Thanks for remembering!"
 )
 Post.create(
   author_id: computer.id,
@@ -216,6 +201,21 @@ Post.create(
 )
 Post.create(
   author_id: ongo.id,
-  wall_id: computer.id,
-  body: "Haha, very true. Thanks for remembering!"
+  wall_id: ongo.id,
+  body: "Also, if you want to quickly navigate to a specific users profile, try using the searchbar on the nav."
+)
+Post.create(
+  author_id: shia.id,
+  wall_id: meeseeks.id,
+  body: "Yeah Mr. Meeseeks, and don't forget that this page has infinite scroll too to, so as you scroll down, you can view your friends' posts without crazy load times!"
+)
+Post.create(
+  author_id: meeseeks.id,
+  wall_id: meeseeks.id,
+  body: "And you can make posts from here too! try it out!!!!!"
+)
+Post.create(
+  author_id: ongo.id,
+  wall_id: ongo.id,
+  body: "Welcome to MyFace! This is the newsfeed. From here you can view your posts as well as your friends' posts! On the right is a suggested friends list that you can click to view some possible friends' profiles, and on the left is are some useful links from the site's creator."
 )
