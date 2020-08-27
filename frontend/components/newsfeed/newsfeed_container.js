@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchUser } from '../../actions/user_api_actions';
+import { fetchFriends } from '../../actions/friend_api_actions';
 import Newsfeed from './newsfeed';
 
 const mSTP = (state) => {
