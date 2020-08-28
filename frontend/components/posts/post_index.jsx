@@ -39,8 +39,13 @@ class PostIndex extends React.Component {
     const { posts } = this.props;
     return (
       <>
-        {
-
+        { this.props.indexType === 'wall' && !posts.length &&
+          <div className="no-posts">
+            <div>
+              No posts to show
+            </div>
+          <i className="fas fa-menorah"></i>
+          </div>
         }
         <ul className="wall-post-list">
           {posts.map((post) => (
