@@ -90,8 +90,9 @@
       border-radius: 12px;
       margin-left: 30px;
       margin-top: 10px;
+
     &:hover {
-      background-color: rgb(210, 210, 210);
+      background-color: rgb(225, 225, 225);
     }
 
     i {
@@ -104,6 +105,13 @@
       margin-left: 20px;
       font-weight: bold;
     }
+  }
+
+  a#disabled-link {
+    background-color: rgb(210, 210, 210);
+    color: rgb(189, 187, 187);
+    cursor: not-allowed;
+
   }
 }
 
