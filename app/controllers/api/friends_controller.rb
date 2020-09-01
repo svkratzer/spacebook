@@ -39,12 +39,13 @@ class Api::FriendsController < ApplicationController
 
   private
   def find_suggested_friends(user)
-    friend_ids = user.friendships.pluck(:friend_b_id)
+    friend_ids = user.friendships.pluck(:friend_b_id).first(12)
     mutual_friends = []
 
     friend_ids.each do |friend_a_id|
       mutual_friends << Friend.where("friend_a_id = ?", friend_a_id)
         .where.not("friend_b_id IN (?)", friend_ids)
+        .where.not("friend_b_id = ?", user.id)
     end
     mutual_friends.flatten.uniq.first(9)
   end
