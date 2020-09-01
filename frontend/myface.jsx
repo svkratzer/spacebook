@@ -29,10 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const store = configureStore(preloadedState);
 
+  /*
   // TESTING
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
   // TESTING
+  */
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root)
