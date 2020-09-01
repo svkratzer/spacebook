@@ -12,8 +12,6 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   />
 );
 
-{/* <Redirect to={`/users/${currentUserId}`} */}
-
 const Protected = ({ component: Component, path, loggedIn, exact }) => (
   <Route
     path={path}
