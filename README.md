@@ -67,5 +67,67 @@ The third feature that I implemented was "friends." Friends are like association
 ### Newsfeed
 The fourth feature that I implemented was a newsfeed. The newsfeed is a stream of all posts made by the user and their friends. These posts appear on the user's "homepage" and is the main way to view content on the site. The newsfeed is important, because it removes the necessity of users having to visit all of their friends' profiles individually to view their posts. Instead, they can view them all from a readily available, centralized source. For this reason, in terms of UX, the newsfeed is essential. 
 
+## Challenges & Solutions
+
+### Challenge I: Poor Load Times
+
+**Problem**
+After first implementing the newsfeed, I noticed that posts weren't being fetched from the database in an efficient manner. When a user's newsfeed included more than 10 or so posts, load times started to enter the "unacceptable" range.
+
+**Solution**
+A quick google search indicated that my problem was rather common, and that the solution was rather straightforward. To reduce load times, the best way forward was fetching a limited number of posts when the user intially visits their newsfeed. The next step would "paginating" all later requests and including some kind of event handler to fetch the posts when the user scrolled to the bottom of the feed. To implement this feature, I decided to use the *kaminari* gem in the backend to actually pagniate the requests in my `PostsController#index` action, and the *react-waypoint* library to simplify the event handler on the frontend. To this end, I just made the necessary changes in the backend, reworked my `fetchPosts` thunk action creator on the front end to account for pagination like so...
+
+```
+// frontend/components/posts/post_index.jsx
+
+  fetchPostsPaginated() {
+    const { indexType, userId } = this.props;
+    const currPage = this.state.page;
+
+    this.setState({ page: (currPage + 1) }, () => { 
+      this.props.fetchPosts(indexType, userId, this.state.page)
+    });
+  }
+  ```
+    
+ ...and voila, I'd implemnted infinite scroll. 
+   
 ![infinite-scroll](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/myface_infinitescroll.gif)
+  
+### Challenge II: Poor Navigation for New Users
+
+**Problem**
+Somewhat less obvious than the last issue, after playing around with the site halfway through its development, I noticed that it wasn't very easy for new users to navigate between different profiles. So much of Facebook's functionality is driven by user-to-user interaction, and yet users weren't able to view eachother's profiles easily without already being friends. Something needed to be done to facilitate "match-making" for new users so they could more easily grow their friends list and more easily navigate to other users' profiles. 
+
+**Solution**
+The solution to this problem was twofold...  
+
+First, I decided that search was an essential feature from a UI standpoint. It's implementation was rather straightforward, and the only technical "hurdle" I encountered was that the search request was originally made every time a user clicked a key. The solution was rather simply to use debouncing to limit the number of requests made in a given time period. A gif of the site's search functionality in action can be seen below.
+  
 ![search](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/myface_search.gif)
+  
+Second, I thought it would be a good idea to implement some sort of "suggested friends" feature to increase the rate at which new users made friends. This also served to increase navigability for newer accounts. As it stands, the suggested friends algorithm is rather simple, and is an Active Record query for mutual friends. The code is as follows...
+
+```
+# app/controllers/api/friends_controller.rb
+
+  def find_suggested_friends(user)
+    friend_ids = user.friendships.pluck(:friend_b_id).first(12)
+    mutual_friends = []
+
+    friend_ids.each do |friend_a_id|
+      mutual_friends << Friend.where("friend_a_id = ?", friend_a_id)
+        .where.not("friend_b_id IN (?)", friend_ids)
+        .where.not("friend_b_id = ?", user.id)
+    end
+    mutual_friends.flatten.uniq.first(9)
+  end
+  ```
+    
+## Future Plans
+Currently, these are the features I plan to implement in the future.
+
+1. Advanced friending functionality
+2. Improved suggested friends algorithm
+3. Instant messaging
+4. Notifications
