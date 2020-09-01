@@ -49,7 +49,7 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    # The wall_id is taken from the front_end route
+    # The wall_id is taken from the front-end route
     params.require(:post).permit(:body, :photo_url, :wall_id, :author_id)
   end
 end
