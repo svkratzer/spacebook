@@ -198,56 +198,26 @@ custom_friends_ids.each_with_index do |id, index|
   end
 end
 
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
+# A lambda that, you guessed it, posts the number 42.
+post42 = ->(num) {
+  num.times do 
+    Post.create(
+    author_id: computer.id,
+    wall_id: ongo.id,
+    body: "42")
+  end
+}
+
+post42.call(42)
+
 Post.create(
   author_id: computer.id,
   wall_id: ongo.id,
   body: "These 42's are really just for demonstrating infinite scroll."
 )
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
-Post.create(
-  author_id: computer.id,
-  wall_id: ongo.id,
-  body: "42"
-)
+
+post42.call(20)
+
 Post.create(
   author_id: ongo.id,
   wall_id: computer.id,
