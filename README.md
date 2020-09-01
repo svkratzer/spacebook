@@ -51,6 +51,8 @@ const App = () => (
 Assuming users have yet to make an account, they're taken to the splash page. From here, users can create an account, login with existing credentials, or hit the Demo Login button to automatically sign up with a pre-generated "Nick Cage" account. The splash page was designed to closely resemble Facebook, and special attention was not only paid to its overall layout, but to the way in which errors are rendered as well. 
 
 ![splash](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/myface_splash.gif)
+  
+---
 
 ## Main Features
 This site was created to develop my understanding of the React.js while mimicking the very web app for which it was developed--Facebook. With that in mind, I originally set out to develop four features that I found most foundational to Facebook's functionality. 
@@ -66,15 +68,17 @@ The third feature that I implemented was "friends." Friends are like association
 
 ### Newsfeed
 The fourth feature that I implemented was a newsfeed. The newsfeed is a stream of all posts made by the user and their friends. These posts appear on the user's "homepage" and is the main way to view content on the site. The newsfeed is important, because it removes the necessity of users having to visit all of their friends' profiles individually to view their posts. Instead, they can view them all from a readily available, centralized source. For this reason, in terms of UX, the newsfeed is essential. 
+  
+---
 
 ## Challenges & Solutions
 
 ### Challenge I: Poor Load Times
 
-**Problem**
+**Problem**. 
 After first implementing the newsfeed, I noticed that posts weren't being fetched from the database in an efficient manner. When a user's newsfeed included more than 10 or so posts, load times started to enter the "unacceptable" range.
 
-**Solution**
+**Solution**. 
 A quick google search indicated that my problem was rather common, and that the solution was rather straightforward. To reduce load times, the best way forward was fetching a limited number of posts when the user intially visits their newsfeed. The next step would "paginating" all later requests and including some kind of event handler to fetch the posts when the user scrolled to the bottom of the feed. To implement this feature, I decided to use the *kaminari* gem in the backend to actually pagniate the requests in my `PostsController#index` action, and the *react-waypoint* library to simplify the event handler on the frontend. To this end, I just made the necessary changes in the backend, reworked my `fetchPosts` thunk action creator on the front end to account for pagination like so...
 
 ```
@@ -90,17 +94,18 @@ A quick google search indicated that my problem was rather common, and that the 
   }
   ```
     
- ...and voila, I'd implemnted infinite scroll. 
+ ...and voila, I'd implemented infinite scroll. 
    
 ![infinite-scroll](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/myface_infinitescroll.gif)
   
+---
 ### Challenge II: Poor Navigation for New Users
 
-**Problem**
+**Problem**  
 Somewhat less obvious than the last issue, after playing around with the site halfway through its development, I noticed that it wasn't very easy for new users to navigate between different profiles. So much of Facebook's functionality is driven by user-to-user interaction, and yet users weren't able to view eachother's profiles easily without already being friends. Something needed to be done to facilitate "match-making" for new users so they could more easily grow their friends list and more easily navigate to other users' profiles. 
 
-**Solution**
-The solution to this problem was twofold...  
+**Solution**  
+The solution to this problem was two-fold...  
 
 First, I decided that search was an essential feature from a UI standpoint. It's implementation was rather straightforward, and the only technical "hurdle" I encountered was that the search request was originally made every time a user clicked a key. The solution was rather simply to use debouncing to limit the number of requests made in a given time period. A gif of the site's search functionality in action can be seen below.
   
@@ -123,7 +128,7 @@ Second, I thought it would be a good idea to implement some sort of "suggested f
     mutual_friends.flatten.uniq.first(9)
   end
   ```
-    
+---
 ## Future Plans
 Currently, these are the features I plan to implement in the future.
 
