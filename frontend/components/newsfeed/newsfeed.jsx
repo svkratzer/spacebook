@@ -44,13 +44,13 @@ class Newsfeed extends React.Component {
               <i className="fab fa-github"></i>
               <div>Github</div>
             </a>
+            <a href="https://www.linkedin.com/in/samuel-kratzer-b710261b5/">
+              <i className="fab fa-linkedin"></i>
+              <div>LinkedIn</div>
+            </a>
             <a id="disabled-link" href="https://svkratzer.github.io/">
               <i className="fas fa-book-reader"></i>
               <div>Portfolio</div>
-            </a>
-            <a id="disabled-link" href="">
-              <i className="fab fa-linkedin"></i>
-              <div>LinkedIn</div>
             </a>
             <a id="disabled-link" href="">
               <i className="fab fa-angellist"></i>
