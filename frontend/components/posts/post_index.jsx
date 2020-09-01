@@ -17,7 +17,9 @@ class PostIndex extends React.Component {
     const { indexType, userId } = this.props;
     const currPage = this.state.page;
 
-    this.setState({ page: (currPage + 1) }, () => { this.props.fetchPosts(indexType, userId, this.state.page) });
+    this.setState({ page: (currPage + 1) }, () => { 
+      this.props.fetchPosts(indexType, userId, this.state.page)
+    });
   }
 
   componentDidMount() {
