@@ -1,6 +1,5 @@
 class Api::SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :ensure_logged_in, only: [:destroy]
 
   def create
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
