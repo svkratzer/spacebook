@@ -162,7 +162,7 @@ class SignupForm extends React.Component {
         <div className="bg-label">Gender</div>
         <div className="gender-inputs-container">
 
-           <label className="gender-input-label">
+          <label className="gender-input-label">
             <input type="radio"
               name="g"
               value="Female"
