@@ -20,9 +20,7 @@ class Api::UsersController < ApplicationController
         create_friends(@user.id, meeseeks.id)
         shia = User.find_by(last_name: "LaBoeuf")
         create_friends(@user.id, shia.id)
-        
       end
-
       render :show
     else
       render json: @user.errors.full_messages, status: 422
