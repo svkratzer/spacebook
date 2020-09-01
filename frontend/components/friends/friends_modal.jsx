@@ -9,7 +9,6 @@ class FriendsModal extends React.Component {
   }
 
   gridify(friends) {
-      const {currentUserId, userId} = this.props;
       return friends.map( (friend) => {
         let photoUrl = null;
 
