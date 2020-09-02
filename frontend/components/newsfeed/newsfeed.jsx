@@ -38,7 +38,7 @@ class Newsfeed extends React.Component {
 
           <div className="newsfeed-links sidebar">
             <div className="info">
-              Welcome to MyFace! Below you'll find some useful links, like the project's Github repo and the creator's Portfolio. 
+              Welcome to MyFace! Below you'll find some useful links, like the project's Github repo and the creator's LinkedIn. 
             </div>
             <a href="https://github.com/svkratzer/MyFace">
               <i className="fab fa-github"></i>
@@ -48,6 +48,7 @@ class Newsfeed extends React.Component {
               <i className="fab fa-linkedin"></i>
               <div>LinkedIn</div>
             </a>
+            {/* LEAVE THE FOLLOWING CODE COMMENTED OUT -- DO NOT DELETE
             <a id="disabled-link" href="https://svkratzer.github.io/">
               <i className="fas fa-book-reader"></i>
               <div>Portfolio</div>
@@ -55,7 +56,8 @@ class Newsfeed extends React.Component {
             <a id="disabled-link" href="">
               <i className="fab fa-angellist"></i>
               <div>AngelList</div>
-            </a>
+            </a> 
+            */}
           </div>
 
           <div className="newsfeed-center">
