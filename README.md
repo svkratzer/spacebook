@@ -79,7 +79,7 @@ The fourth feature that I implemented was a newsfeed. The newsfeed is a stream o
 After first implementing the newsfeed, I noticed that posts weren't being fetched from the database in an efficient manner. When a user's newsfeed included more than 10 or so posts, load times started to enter the "unacceptable" range.
 
 **Solution**. 
-A quick google search indicated that my problem was rather common, and that the solution was rather straightforward. To reduce load times, the best way forward was fetching a limited number of posts when the user intially visits their newsfeed. The next step would "paginating" all later requests and including some kind of event handler to fetch the posts when the user scrolled to the bottom of the feed. To implement this feature, I decided to use the *kaminari* gem in the backend to actually pagniate the requests in my `PostsController#index` action, and the *react-waypoint* library to simplify the event handler on the frontend. To this end, I just made the necessary changes in the backend, reworked my `fetchPosts` thunk action creator on the front end to account for pagination like so...
+A quick google search indicated that my problem was common enough, and the solution was rather straightforward. To reduce load times, the best way forward was fetching a limited number of posts when the user intially visits their newsfeed. The next step was "paginating" all later requests and including some kind of event handler to fetch the posts when the user scrolled to the bottom of the feed. To implement this feature, I decided to use the *kaminari* gem in the backend to actually pagniate the requests. The paginated requests occured in the `PostsController#index` action, and the *react-waypoint* library was used on the front-end to simplify the event handling. I made the necessary changes in the backend, reworked my `fetchPosts` thunk action creator on the front-end to account for pagination like so...
 
 ```
 // frontend/components/posts/post_index.jsx
@@ -102,16 +102,16 @@ A quick google search indicated that my problem was rather common, and that the 
 ### Challenge II: Poor Navigation for New Users
 
 **Problem**  
-Somewhat less obvious than the last issue, after playing around with the site halfway through its development, I noticed that it wasn't very easy for new users to navigate between different profiles. So much of Facebook's functionality is driven by user-to-user interaction, and yet users weren't able to view eachother's profiles easily without already being friends. Something needed to be done to facilitate "match-making" for new users so they could more easily grow their friends list and more easily navigate to other users' profiles. 
+Somewhat less obvious than the last issue, after playing around with the site halfway through its development, I noticed that it wasn't very easy for new users to navigate between different profiles. So much of Facebook's functionality is driven by user-to-user interaction, and yet users weren't able to view eachother's profiles easily without already being friends. Something needed to be done to facilitate "match-making" for new users so they could more easily grow their friends list and navigate to other users' profiles. 
 
 **Solution**  
 The solution to this problem was two-fold...  
 
-First, I decided that search was an essential feature from a UI standpoint. It's implementation was rather straightforward, and the only technical "hurdle" I encountered was that the search request was originally made every time a user clicked a key. The solution was rather simply to use debouncing to limit the number of requests made in a given time period. A gif of the site's search functionality in action can be seen below.
+First, I decided that search was an essential feature from a UI standpoint. It's implementation was straightforward, and the only technical "hurdle" I encountered was that the search request was originally made every time a user clicked a key. The solution was simply to use debouncing to limit the number of requests made in a given time period. A gif of the site's search functionality in action can be seen below.
   
 ![search](https://github.com/svkratzer/MyFace/blob/master/app/assets/images/readme_images/myface_search.gif)
   
-Second, I thought it would be a good idea to implement some sort of "suggested friends" feature to increase the rate at which new users made friends. This also served to increase navigability for newer accounts. As it stands, the suggested friends algorithm is rather simple, and is an Active Record query for mutual friends. The code is as follows...
+Second, I thought it would be a good idea to implement some sort of "suggested friends" feature to increase the rate at which new users made friends. This also served to increase navigability for newer accounts. As it stands, the suggested friends algorithm isn't as developed as I'd like it to be. At this point, it's an Active Record query for mutual friends. The code is as follows...
 
 ```
 # app/controllers/api/friends_controller.rb
